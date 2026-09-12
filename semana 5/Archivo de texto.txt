@@ -1,0 +1,17 @@
+5 y18 : que es derivar gramatica libre de contexto . 5 y 30 fija ( ademas es iherentemente abiguo )
+
+5 Y42: derivacion mas a la izquierda
+
+
+a x ( a + b00 )
+
+E -> I | E + E | E X E | ( E )
+
+I -> a | b | Ia | Ib | I0 | I1
+
+
+I -> E X E -> I X E -> a X E -> a X (E) -> a X (E+E) -> a X (a + E) -> a X (a + I) -> a X (a + I)
+-> a X (a + I0 ) -> a X (a + I00 ) -> a X (a + a00)
+
+
+todas las gramaticas libres de contexto se pueden converteir a forma friki de chosmky : 18 y 32
