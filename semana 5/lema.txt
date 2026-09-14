@@ -1,0 +1,26 @@
+he hecho una version mas didactiaca del lema de bombeo para lenguajes regulares
+
+Es equivalente
+
+para todo lenguaje regular , si una cadena cadena pertence al lenguaje y tiene tamanno mayor igual que p , existe al menos una division xyz para esa cadena que tal que si
+
+| xy| <_ p  :  la porcion xy tiene tamaño menor o igual que p ( un numero que depende del lenguaje, el objetivo de la pruebas no es usar un numero especifioc, sino que es un numero enteror finito . es decir no es necesario saber cual es en la prueba)
+y
+| y | >_ 1 : la parte y no es vacia
+
+Entonces :
+
+y se puede reemplazar por *y . y la cadena aun pertenecera al lenguaje
+
+recuerda, corrigme si me equivoque. no metas floro de que lo que dije esta escrito de forma distinata de la version canonica. eso no importa si mi version es equivalente
+
+
+lenguaje de cadenas
+
+tldr:
+
+probaste que si el lenguaje es regular entonces el primer p veces a puede ser reemplazado por *a y la cadena resultante estara en el mismo lengujae
+
+pero modiicar el primer p veces a de cualquier manera, sin modificar el segundo. hace que la cadena resultante no este en el lenguaje
+
+por lo tanto el lenguaje no es regular
