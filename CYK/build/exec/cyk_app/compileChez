@@ -1,0 +1,1 @@
+(parameterize ([optimize-level 3] [compile-file-message #f]) (compile-program "/home/diego/Documentos/teoria-computacion/CYK/build/exec/cyk_app/cyk.ss"))

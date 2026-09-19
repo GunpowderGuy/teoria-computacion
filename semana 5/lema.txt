@@ -24,3 +24,36 @@ probaste que si el lenguaje es regular entonces el primer p veces a puede ser re
 pero modiicar el primer p veces a de cualquier manera, sin modificar el segundo. hace que la cadena resultante no este en el lenguaje
 
 por lo tanto el lenguaje no es regular
+
+
+
+
+
+
+lenguaje de cadenas repetidas, donde los caracteres son a o b
+
+
+
+tenemos la caden
+
+p veces a seguido de b seguido de p veces a seguido de b. esta cadena pertenece al lenguaje
+
+Como esta cadena tiene mas de tamanno p, proseguimos con la division xyz
+
+
+xy debe ser ( el primer ) p veces a o una subcadena de este. ya que xy tiene como tamanno maximo p
+
+y debe ser un subconjunto no vacio de xy. por lo tanto es n veces a. tal que n es menor o igual a p
+
+
+con los condiciones remarcadas y podria ser reemplazado por y*. y la cadena resultante deberia seguir en el mismo lenguaje
+
+sin embargo modifica el primer p veces a de cualquier manera sin modificar el segundo. hace que la segunda parte de la cadena no sea una copia de la primera
+
+esto solo puede ocurrir si no se puede aplciar el lema de bombeos de lennguajes regulares. por lo tanto el lenguaje no es regular
+
+
+
+L = {w ∈ {a,b}* : #a(w) = #b(w)}
+
+

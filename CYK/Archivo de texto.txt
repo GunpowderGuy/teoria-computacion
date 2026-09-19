@@ -1,0 +1,51 @@
+Ejemplo : ejecute el algoritmo CYK para la siguiente cadena : baba y la siguiente GIC
+
+
+S- > RT
+R-> TR | a
+T-> TR | b
+
+
+
+
+
+proceso
+
+
+- combinaciones de RT y S , son RS o TS , pero nadie los produce, ya que que S es el simbolo de inicio
+
+S ( nota que hay mas de una forma de llegar a S en este nivel)
+RT  S
+RT  S   RT
+T   R   T   R
+b-.-a-.-b-.-a
+
+
+S
+S  S
+RT  S   RT      nota*
+T   R   T   R
+b-.-a-.-b-.-a
+
+
+nota: R,T combinado con R,T . Es la unica forma de llegar a S en el ultimo nivel. Ademas no veo algo mas que se pueda llevar
+en el ultimo nivel ademas de S. Ya que ademas de R,T combinado consigo mismo. Las otras combinaciones tiene S con algo mas
+sin embargo esas combinaciones no se pueden derivar
+
+correcion . R,T combinado consigo mismo produce 2 combinaciones validas . RT ( se deriva por S) y TR (se deriva por R o T)
+
+SRT
+S  S
+RT  S   RT
+T   R   T   R
+b-.-a-.-b-.-a
+
+
+expresiones regulares ( convertir a automata o vice versa )
+pumping lemma de lengaujes regulares
+gramaticas libres de contexto
+( incluye convertir a formal friki de chomsky)
+
+CYK
+ algoritmo deriva (esta en semana 6)
+

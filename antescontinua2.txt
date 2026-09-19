@@ -1,0 +1,48 @@
+ 15 y 13 no vendra exp regular a afd
+
+
+ 29 : no vendra tranformar afn a afd
+
+
+ construir
+
+
+g {w#w.R : w.R es la cadena w leida al reves } :
+
+S -> 0S0 | 1S1 | #
+
+
+i veces a * j veces b * k veces c , tal que i =/ j o j=/ k
+
+cuando me dijiste que S esta mal. solo de eso me di cuenta que esta mal. bs y cs no pueden ser ambos 0
+
+S - > AZ | Z
+A -> Aa | epsilon
+Z -> bZc | B | C
+B -> Bb | b
+C -> Cc | c
+
+solo dime si esta bien o no
+
+
+y el otro es
+
+
+i veces a * j veces b * k veces c , tal que i + j = k o j=/ k
+
+union de un lenguaje donde el numero de a y el numero de b es igual a el numero de c. de la forma abc. con un subelenguaje similar al anterior
+
+S -> aSc | T
+T -> bTc | epsilon
+
+
+union con
+
+
+S - > AZ | Z
+A -> Aa | epsilon
+Z -> bZc | B | C
+B -> Bb | b
+C -> Cc | c
+
+da el lenguaje dado
