@@ -1,0 +1,37 @@
+5 y 44
+
+Un automata con pila es una 6 tupla
+
+y 31 aceptacion
+
+
+6 y 08 : la cadena se debe terminar. Y el stack debe estar vacio
+
+( sipser 6 y 13)
+
+
+
+
+25 de septiembre
+
+como 3 y 34 : maquina de turing
+
+la demonstracion del p primo esta aca
+
+
+26
+
+10 y 22 : un poco lema de bombeo
+
+
+
+Demuestre que los siguientes lengaujes no son libres de contexto ( antes 11y 48 )
+
+
+-L = {a.pow(1)  b.pow(1)  c.pow(1) | 0 <_ i <_ j <_ k}
+
+a.pow(1)  b.pow(1)  c.pow(1)
+
+
+
+lenguaje cadena repetida
