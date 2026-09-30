@@ -1,0 +1,55 @@
+asesoria particular 29/9/26
+
+S -> AB
+A-> wAc | epsilon
+B->cBe  | epsilon
+
+eso es lo mismo , pero en vez = en vez de <
+
+
+16
+.27 paso imoratne conversion a automata
+
+
+Darlene priyanka estaba desde el principio . Andres martin benjamin vino 16 y 29
+
+S -> AB
+A-> wAc | C
+B->cBd | C
+C-> cC | c
+
+
+L = { 0.pow(i) 1.pow(2j) 4.pow(i+j+k) 3.pow(3k) : k > 2 }
+sigma = { 0, 1,4,3}
+
+
+S - > LR
+L -> 0A4 | B
+
+B-> 11B4 | epsilon
+
+R - > 4R333 | 4333
+
+correccion :
+
+S - > LR
+L -> 0A4 | B
+
+B-> 11B4 | epsilon
+
+R - > 4R333 | 444 333 333 333
+
+
+Asesoria: 19 y 25 aprox ambiguedad
+
+
+demeuesta la ambiguedad de
+
+S-> AC | aD
+A-> aAb | B
+B-> aB | a
+C -> aCa | D
+D -> aDa | epsilon
+
+
+s - >
