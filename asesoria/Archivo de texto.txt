@@ -24,7 +24,7 @@ sigma = { 0, 1,4,3}
 
 
 S - > LR
-L -> 0A4 | B
+L -> 0L4 | B
 
 B-> 11B4 | epsilon
 
@@ -33,7 +33,7 @@ R - > 4R333 | 4333
 correccion :
 
 S - > LR
-L -> 0A4 | B
+L -> 0L4 | B
 
 B-> 11B4 | epsilon
 
