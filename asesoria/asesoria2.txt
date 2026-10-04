@@ -1,0 +1,24 @@
+If a language L {\displaystyle L} is context-free, then there exists some integer p ≥ 1 {\displaystyle p\geq 1} (called a "pumping length")[2] such that every string s {\displaystyle s} in L {\displaystyle L} that has a length of p {\displaystyle p} or more symbols (i.e. with | s | ≥ p {\displaystyle |s|\geq p}) can be written as
+
+s = u v w x y
+{\displaystyle s=uvwxy}
+
+with substrings u , v , w , x {\displaystyle u,v,w,x} and y {\displaystyle y}, such that
+
+    | v x | ≥ 1 {\displaystyle |vx|\geq 1},
+    | v w x | ≤ p {\displaystyle |vwx|\leq p}, and
+    u v n w x n y ∈ L {\displaystyle uv^{n}wx^{n}y\in L} for all n ≥ 0 {\displaystyle n\geq 0}.
+
+Below is a formal expression of the Pumping Lemma.
+
+
+si un lenguaje es context free. existe un entero p >_ 1 , llamado pumping lenght. tal que cada cadena W que pertenece al lenguaje L. Tiene tamaño p o mayor.
+si cumple eso puede escribirse como
+
+W = uvxyz
+
+con subcadenas uvxyz , tal que
+
+tamaño(xy) >_ 1,
+tamaño(vxy) <_ p ,
+u v.pow(n) x y.pow(n) z
