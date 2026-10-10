@@ -1,0 +1,27 @@
+viernes 9 de octubre
+
+3 y40 : ejercicio que nos salio mal
+
+
+4 y10 : nuestra version de turing, es basada en zipser, que es mas simple
+
+
+
+
+
+15: temas que ya vimos
+
+4 y 15:  el primer blanca marca el fin de w. Zipser dice la cinta tiene un inicio.
+
+4 Y 51 . esto es la clave
+
+
+sabado 10 de octubre
+
+10 y 37 : computacon
+
+"todo lenguaje decidible es reconocible"
+
+para esa maquina de turing. vamos a describir las configuraciones para
+
+000 1 , 000 001 , 001 1
