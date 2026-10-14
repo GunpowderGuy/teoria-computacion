@@ -1,0 +1,80 @@
+martes 13
+
+3 y 30:
+
+lema de bombeo para lenguajes libres de contexto
+
+
+L = { a.pow(n) b.pow(n) c.pow(n) | n >_ 0 } no es libre de contexto
+
+
+
+recordemos el esquema
+
+si un lenguaje es context free. existe un entero p >_ 1 , llamado pumping lenght. tal que cada cadena W que pertenece al lenguaje L. Tiene tamaño p o mayor.
+si cumple eso puede escribirse como
+
+W = uvxyz
+
+con subcadenas uvxyz , tal que
+
+tamaño(xy) >_ 1,
+tamaño(vxy) <_ p ,
+u v.pow(n) x y.pow(n) z ( nota, si , el numero de veces que repites v es el mismo que y )
+
+
+Primer caso :
+
+v o y . esta compuesta por ab o bc
+
+Si bombeas con n ==2 . Entonces v o y vale abab o bcbc .esto no es una subcadena valida del lenguaje
+
+
+Segundo caso:
+
+v es a.pow(n2) y Y es a.pow(n3)
+
+cuando bombeamos con cualquier n=/1 . Entonces el numero de as en la cadena cambiara. Sera diferente que el numero de bs y de cs.
+
+Por lo tanto la cadena resultante ya no sera de la forma a.pow(n) b.pow(n) c.pow(n)
+
+
+Tercer caso:
+
+v es b.pow(n2b) y Y es b.pow(n3b)
+
+cuando bombeamos con cualquier n=/1 . Entonces el numero de as en la cadena cambiara. Sera diferente que el numero de bs y de cs.
+
+Por lo tanto la cadena resultante ya no sera de la forma a.pow(n) b.pow(n) c.pow(n)
+
+
+Tercer caso:
+
+v es c.pow(n2c) y Y es c.pow(n3c)
+
+cuando bombeamos con cualquier n=/1 . Entonces el numero de as en la cadena cambiara. Sera diferente que el numero de bs y de cs.
+
+Por lo tanto la cadena resultante ya no sera de la forma a.pow(n) b.pow(n) c.pow(n)
+
+
+Tercer caso:
+
+v es a.pow(nf) y y es b.pow(nf2)
+
+
+cuando bombeamos con cualquier n=/1 . Entonces el numero de as y bs en la cadena cambiara. puede o no ser diferente el numero de as y bs.
+. Pero siempre Sera diferente que el numero de cs.
+
+Por lo tanto la cadena resultante ya no sera de la forma a.pow(n) b.pow(n) c.pow(n)
+
+
+
+Tercer caso:
+
+v es b.pow(nf) y y es c.pow(nf2)
+
+
+cuando bombeamos con cualquier n=/1 . Entonces el numero de bs y cs en la cadena cambiara. puede o no ser diferente el numero de bs y cs.
+. Pero siempre Sera diferente que el numero de as.
+
+Por lo tanto la cadena resultante ya no sera de la forma a.pow(n) b.pow(n) c.pow(n)
