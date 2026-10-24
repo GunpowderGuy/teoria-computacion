@@ -1,0 +1,59 @@
+22 octubre
+
+
+( dijo de nuevo ) 5 y 21 todas las variantes de la maquina de turing son equivalentes
+
+26
+
+Cabezales virtuales y cintas separadas por #
+
+30 : son 
+
+desde turing machine hasta decidibilidad ( antes 6pm ) 
+
+
+NO HAY ESTADO DE RECHAZO EXPLICITO ( 6 pm )
+
+6 y 04 : Maquina de Turing no deterministica
+
+usa bfs
+
+hilbert estaba equivcado 
+
+(profesor dijo que un sistema comptuacional no puede ser decidible ) ( 6 y22 ) esta erroneo, por que un sistema como Coq es total
+
+6 y29 : supuestamente es una tesis y no teorema
+
+6 y 45 : codificacion
+
+23 de cotubre 
+
+3 y 31 : lenguajes decidibles
+
+Lenguaje decidible : Todo lenguaje para el cual existe una mt tal que
+-para cada cadena del lenguaje la maquina acepta
+-para cada cadena no dentro del lenguaje, la maquina rechaza
+  como para cada cadena acepta o rechaza, nunca entra en bucle infinito
+
+
+( 3 y 44 ) no puedes obviar este paso 
+
+simulacion de AFD en turing, hace lo que dije
+
+3 y 53 : puedes hacer un subonconjunto de MT que nunca entra bucle infinitino 
+
+4 y 8 : simulacion de AFD
+
+4 y 30 : Maquina de turing que transforma expresion regular a AFD
+
+
+algo sobre GLC ( 4 y 37 ) 
+
+yo dije : para determinar que un Gramatica Libre Contexto genera una cadena n
+puedes generar todas las cadenas posibles hasta tamaño n, luego determinar si n
+pertenece a ese conjunto
+
+el profesor dijo que lo que dije esta bien. De cierto modo zypser habla de esto ( 4 y 40 ) 
+
+varias cosas y a las 4 y49 : problema de equivalencia dos GLC. No es decidible 
+
