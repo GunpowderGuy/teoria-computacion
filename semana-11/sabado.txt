@@ -1,0 +1,29 @@
+24 : primer problema no computable
+
+atm, el lenguaje de aceptacion de maquinas de turing
+
+las cadenas que primero contienen una maquina de turing codificada en cadena. y la siguiente parte de la caden, es una subcadena que la maquin anterior acepta
+
+Lenguaje reconocible : Todo lenguaje para el cual existe una mt tal que
+-para cada cadena del lenguaje la maquina acepta
+-para cada cadena no dentro del lenguaje, la maquina rechaza o entra en loop infinito
+
+atm no es decidible, pero si es reconocible. por que para reconocer solo emulas la maquina sobre la cadena. si la maquina reconoce emulada reconoce. entonces la maquin exterior tambien acepta
+
+
+49 : 47 : el conjunto de la maquinas de turing, es contable
+pero los numero reales son incontables. demonstrable con diagonalizacion
+
+
+
+
+1 y04 : las maquinas de turing son contables . los lenguaes son incontables
+
+1 y 6 : principio arquimediano de la matematica
+
+
+1 y 14 : probamos por contradiccion
+
+1 y27 : un lenguaje que ni si quiera es reconocibles
+
+1 y 35 : que entra en el examen
