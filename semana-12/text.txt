@@ -1,0 +1,86 @@
+29 oct 18:12
+
+5 05 : solo entra hasta indecibilidad
+
+5 y 0 9 : solo hasta decidibiliddad
+
+5 y 10 : may pregunta sobre esquema de proxima evaluacion
+.
+profe : 
+
+mas o menos 
+
+-mt dieseño formal ( con menos de 5 estados ) 
+
+"formal es la 7 tupla"
+puede ser la tabla o puede ser la grafiquita
+
+
+-Diseño high level
+
+-configuraciones. te doy una mt con cadena. calcula las configuraciones ( esto esta en semana 10 y compiladomt.pdf, creo )
+
+-no se si vendra multicinta o no deterministo
+
+-puede venir un par de preguntas decidibles
+
+FIN
+
+7 y 20
+
+
+
+EJERCICIO EXTRA 18 y 44 
+
+Regular tm 
+
+EQ 
+
+ambos son indecidibles
+
+
+6 y 54 teorema de rice : 
+
+decidibilidad respecto a lenguajes regulares y otro respecto context free
+indecibilidad no
+
+
+7 y 23 : veremos reducibilidad
+
+ATM = { < M, W>  | M es una MT acepta W } 
+
+Diego nota : esto es reconocible. por que puedes ejecutar m sobre w . 
+reconocible significa que la mt designada para el problema , siempre para y acepta para cadenas que pertencen al lenguaje 
+Si W pertenece al lenguaje representado por M, entonces ATM se detendra si ejecuta M sobre W, siempre que W pertencesza al lenguaje representado por M
+
+probamos que es indecidible por diagonalizacion ( creo sabado 24 oct )  
+
+
+Reducibilidad diapos ( 5 y 34 )
+
+-......
+
+Si A es indecidible y reducible a B, entonces B es indecidible .
+
+Si A es reducible a B y B es decidible, entonces A tambien es decidible
+
+5 y 40 : como es demostrado que un lenguaje es decidible. hemos construido una maquina de turing que es deicibdle
+
+
+5 y 46 : 
+
+Haltm = {m,w | m es una mt y m se detiene sobre la entrada W } 
+
+
+si haltm fuera decidible , podriamos usar su decisor para decidir Atm
+
+hacemos una maquina IndirectMT que toma m,w :
+- IndirectMt se detiene si m acepta w
+-IndirectMt no se detiene en los otros dos casos ( m rechaza w o m no llega a terminar) 
+
+si ponemos indirectMT sobre haltm . entonces tendremos atm
+
+
+nota sobre explicacion del profesor ( 16 y 17 ) 
+
+6 y 21 : el problema del lenguaje vacio
