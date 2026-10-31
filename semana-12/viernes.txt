@@ -1,0 +1,18 @@
+3y 13 : vacio antes de inicio o no
+
+3 y 19 : mi pregunta
+
+3 y 47 : el profesor explica algunos ejercicios que debemos revisar
+
+
+hace un ratito estabamos viendo averiguar cual es el proposito de una maquina de turing
+4 y 09 : que cadena hace loop 
+
+
+4 y 35 : Hacer ejercicio 11 a) high level y version por tabla
+
+4 y36 : "esto es fundamental, tienes lenguajes decidibles . Cuando tienes lengaujes decidibles, puedes hacer algebra sobre ellos"
+"si tienes L1 y L2 decidibles, complemento , interseccion son decidibles ? "
+
+
+4 y 43: mañana vendra uno decidible high level
