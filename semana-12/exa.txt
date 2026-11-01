@@ -1,0 +1,31 @@
+nota : los enunciados estan un archivo adjunto, en la misma carpeta
+
+Click the link to view the conversation with Kimi https://www.kimi.ai/share/1a19924a-cf72-811f-8000-00009bd19616
+
+Ejercicio 4:
+
+-La idea es correr el algoritmo CYK sobre G para ver si puede derivar w. Como el CYK pide la gramática en forma normal de Chomsky, primero hay que normalizarla.
+
+-Paso 1: convertir G a forma normal de Chomsky. Esto siempre se puede hacer con cualquier GLC.
+
+-Paso 2: ejecutar el CYK con la gramática ya normalizada, usando una tabla triangular de tamaño n = |w|. La tabla se llena de abajo hacia arriba: primero las celdas de un símbolo (qué no-terminales generan cada terminal de w), y después cada celda (i, j) con los no-terminales que derivan la subcadena de la posición i a la j, usando las celdas más chicas que ya están calculadas.
+
+-Paso 3: si el símbolo inicial S está en la celda de arriba de todo, la que cubre toda la cadena, entonces S deriva w y se acepta; si no está, se rechaza. O sea, el CYK no genera cadenas: calcula qué no-terminales derivan cada pedazo de w, y la celda superior tiene a S exactamente cuando w ∈ L(G).
+
+-Por qué decide y no solo reconoce: en forma normal de Chomsky, derivar una cadena de largo n toma exactamente 2n − 1 pasos, y la tabla tiene n(n+1)/2 celdas que se llenan una sola vez cada una. Entonces el procedimiento siempre termina, ya sea aceptando o rechazando, así que es un decididor.
+
+
+
+
+
+ejercicio 5:
+ 
+Paso 1 : Haces union de los afd A y B ( union es entre afn, pero todo afd es un afn ), el resultado sera afn.
+
+Paso 2: El afn resultante del paso 1, lo conviertes a AFD ( lo llamaremos P2) 
+
+Paso 3: Como P2 es la union de 2 AFD. cada uno de sus estados correspondera a 2 estados. Uno de AFD A y el otro de B.
+Revisas si para cada estado de aceptacion ( lo llamaremos Ac) de P2. El Ac corresponde a un estado de aceptacion de A y otro de B. Si para algun Ac, este solo corresponde a un estado de aceptacion de A o B, pero no ambos, entonces la mt RECHAZA. De lo contrario . ACEPTA
+
+
+
