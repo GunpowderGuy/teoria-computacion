@@ -1,3 +1,24 @@
+EJERCICIO 3: https://chat.deepseek.com/share/mwwef6dvsqulq078wz
+
+como hallar si un caracter ( c ) se repite n veces. siendo n = el numero de veces que se repite otra variable a por el numero de veces que se repite otra variable b
+
+la solucion mas simplista posible es
+
+cada vez que lees a lees todas las b. cuando terminas de leer todas las b. tachas una c
+
+hare el pseudocodigo ( otro pseudocodigo del mismo examen esta en semana 12 )
+
+Paso 1 : revisar que la cadena tenga forma a.pow(n1) b.pow(n2) c.pow(n3) , donde los 3 n son al menos 1 . Si no tiene, RECHAZAR
+
+Paso 2 : iterar por la cadena. cuando veas un a, tachar todos los b ( cada caracter sera convertido en una version unica tachada, osea a_tachado, b_tachado y c_tachado respectivamente ) y por cada b que tachas, tachar un c.
+Si alguna vez deberias tachar un caracter, pero no habia tal caracter para tachar RECHAZAR
+
+Paso 3: Destachar todos los B. Si quedan As sin tachar, volver al paso 2
+
+Paso 4: Si quedan C sin tachar RECHAZAR de lo contrario ACEPTAR
+
+responde booleanmente si mi respuesta esta bien o mal
+
 nota : los enunciados estan un archivo adjunto, en la misma carpeta
 
 Click the link to view the conversation with Kimi https://www.kimi.ai/share/1a19924a-cf72-811f-8000-00009bd19616
