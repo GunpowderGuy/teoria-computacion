@@ -1,6 +1,14 @@
+los dos primeros ejercicios estan en el spreadsheet
+
+
 EJERCICIO 3: https://chat.deepseek.com/share/mwwef6dvsqulq078wz
 
-como hallar si un caracter ( c ) se repite n veces. siendo n = el numero de veces que se repite otra variable a por el numero de veces que se repite otra variable b
+
+Diseñe una máquina de Turing en alto nivel que decida el lenguaje L = { aⁱbʲcᵏ | i × j = k and i, j, k ≥ 1 }
+Explicando de forma clara y precisa cada paso del pseudocódigo
+Realiza una descripción adecuada para probar que tu pseudocódigo acepta la cadena aabcc
+
+como hallar si un caracter ( c ) se repite n veces? siendo n = el numero de veces que se repite otra variable a por el numero de veces que se repite otra variable b
 
 la solucion mas simplista posible es
 
@@ -10,7 +18,7 @@ hare el pseudocodigo ( otro pseudocodigo del mismo examen esta en semana 12 )
 
 Paso 1 : revisar que la cadena tenga forma a.pow(n1) b.pow(n2) c.pow(n3) , donde los 3 n son al menos 1 . Si no tiene, RECHAZAR
 
-Paso 2 : iterar por la cadena. cuando veas un a, tachar todos los b ( cada caracter sera convertido en una version unica tachada, osea a_tachado, b_tachado y c_tachado respectivamente ) y por cada b que tachas, tachar un c.
+Paso 2 : iterar por la cadena. cuando veas un a : tachalo , luego tachar todos los b ( cada caracter sera convertido en una version unica tachada, osea a_tachado, b_tachado y c_tachado respectivamente ) y por cada b que tachas, tachar un c.
 Si alguna vez deberias tachar un caracter, pero no habia tal caracter para tachar RECHAZAR
 
 Paso 3: Destachar todos los B. Si quedan As sin tachar, volver al paso 2
@@ -25,6 +33,10 @@ Click the link to view the conversation with Kimi https://www.kimi.ai/share/1a19
 
 Ejercicio 4:
 
+Diseñe una máquina de Turing en alto nivel que decida el lenguaje A_GLC = { ⟨G, w⟩ | G es una GLC que genera w }
+Explicando de forma clara y precisa cada paso del pseudocódigo
+
+
 -La idea es correr el algoritmo CYK sobre G para ver si puede derivar w. Como el CYK pide la gramática en forma normal de Chomsky, primero hay que normalizarla.
 
 -Paso 1: convertir G a forma normal de Chomsky. Esto siempre se puede hacer con cualquier GLC.
@@ -37,9 +49,13 @@ Ejercicio 4:
 
 
 
-
+NOTA: tal vez esto falla con cadenas vacias. revisar luego
 
 ejercicio 5:
+
+Diseñe una máquina de Turing en alto nivel que decida el lenguaje EQ_AFD = { ⟨A, B⟩ | A y B son AFDs y L(A) = L(B) }
+Si usas E_AFD = { ⟨A⟩ | A es un AFD y L(A) = ∅ } debes diseñar el decididor de E_AFD
+
  
 Paso 1 : Haces union de los afd A y B ( union es entre afn, pero todo afd es un afn ), el resultado sera afn.
 
