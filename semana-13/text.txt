@@ -1,0 +1,31 @@
+3 y 51 hay explicacion
+
+4 : 00 foto
+
+4 y 01  : mi explicacion
+y 03 domino. solo demostrarmos que algo es indecibel , el resto es indedicble proabdo por reducibilidad
+
+
+atm >_p x ( atm se reduce polinomialmente a x ) . si atm es indecidible y atm se reduce a x. atm es indeicidible
+ 
+
+reducir atm a haltm
+
+4 y 16 : Por contradiccion , asumimos que hatlM es decidible. Entonces su decididor ( MHalt )  puede ser usado para construir un decididor
+para Atm  ( MATM ) .
+
+MATM tiene el pseudocodigo :
+( M, W )
+Paso 1 : corremos la cinta dada, con MHalt. Si MHalt rechaza, entonces rechazamos
+
+Paso2: corremos M con W. Aceptamos si M acepta. Rechazamos si W rechaza
+
+
+4 y 26 : super explicacion mia
+
+
+4 y 37 : probamos mi reduccion
+
+
+
+4 y 53 : algo con el lenguaje vacio
