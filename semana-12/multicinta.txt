@@ -1,0 +1,5 @@
+En este archivo. Detallare teoria de Maquina turing multicinta. Si corresponde , tambien hare ejercicios
+
+pagina 176 sipser
+
+Las MT multicinta son una variante que cambia la dinamica de la MT. Pero como las otras variantes. No permite reconozer nuevoss lenguaje
