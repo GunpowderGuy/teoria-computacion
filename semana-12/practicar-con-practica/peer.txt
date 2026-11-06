@@ -1,0 +1,66 @@
+lenguaje A_GLC = { ⟨G, w⟩ | G es una GLC que genera w }
+
+Let A = decider for A ( implicit, but does exist ) 
+
+let MiMt = decider for C :
+
+Paso 1 : Generate every posible substring of x
+
+Paso 2 : Run A on G and every result of Paso1. ACCEPT if A accepts on any input. Otherwise REJECT
+
+is mt a decider for C
+
+INCORRECTO : el lenguaje era lo contrario de lo que pensaba
+
+
+entonces un reconocedor ( pero no es decididor ) para c es 
+
+Paso 1: Enumerar una nueva supercadena para x. Se mantiene track de las cadenas ya generadas y se generara la mas pequeña aun no generada
+
+Paso 2: Probar la cadena enumerada aun no probada. Con A ( mas arriba lo defini ) y G. Si acepta, ACEPTAR, de lo contario volver al paso 1
+
+
+Para hacer el decidiciro de C. el libro me recomienda  usar el decididro del siguiente lenguaje
+
+ECFG : { G : tal que la unica cadena que G ( una GLC )  puede generar es la vacia } 
+
+INCORRECTO 
+
+
+ECFG : { G : tal que G es una GLC que para cualquier derivacion posible, siempre entra en bucle infinito ( nunca termina la derivacion ) , por ejemplo } 
+( definicion alternativa en sipser 4.1 DECIDABLE LANGUAGES 199  )
+
+S -> A
+A -> B
+B -> A
+
+o 
+
+
+S -> 0S
+
+
+si C = { <G , X> : tal que una supercadena de x es generable por la GLC G }  
+( supercadena es poner caracteres extra al inicio o al final ) 
+
+
+  
+los lenguajes regulares estan cerrados bajo concatenacion y estrella klene. asi que podemos representar superconjunto de X como
+
+(sigma*)X(sigma*)
+
+y los lenguajes independientes del contexto estan cerrados bajo regulares ( pero no otros context free ) 
+
+entonces L ( (sigma*)X(sigma*) ) interseccion L ( G ) sera vacio si y solo si :
+ninguna cadena que es superconjunto de X es generable por G
+
+decididor para C :
+
+Paso 1 : Hacer la interseccion del L ( (sigma*)X(sigma*) ) con L ( G ) . Llamaremos este resultado I
+
+Paso 2 : La GLC que corresponde a I . Darsela al decididor de ECFG. ACEPTAR si rechaza. RECHAZAR si acepta
+
+
+Ir a pagina 156 ( interseccion de independiente de contexto con regular 
+e ir a pagina 212 ( lenguaje C ) 
+ECFG ( 4.1 199 ) 

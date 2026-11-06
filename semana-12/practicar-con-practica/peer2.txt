@@ -1,0 +1,55 @@
+Ir a pagina 156 ( interseccion de independiente de contexto con regular sipser ) 
+e ir a pagina 212 ( lenguaje C ) 
+ECFG ( 4.1 199 ) 
+
+Haremos un decididor para el el lenguaje C
+
+ C = { <G , X> : tal que una supercadena de X es generable por la GLC G }  
+( supercadena es poner caracteres extra al inicio o al final ) 
+
+
+los lenguajes regulares estan cerrados bajo concatenacion y estrella klene. asi que podemos representar supercadena de X como
+
+(sigma*)X(sigma*)
+
+y los lenguajes independientes del contexto estan cerrados bajo regulares ( pero no otros context free ) 
+
+entonces L ( (sigma*)X(sigma*) ) interseccion L ( G ) sera:
+
+-Un lenguaje GLC. Por lo tanto representable por GLC
+-sera vacio si y solo si ninguna cadena que es supercadena de X es generable por G
+
+
+decididor para C :
+
+Paso 0 ( no se si es necesario. dependiendo de la convenciar, si se eliminar esto. el mt podria igual ser decididor para C)  
+Revisar que la cadena tenga forma <G,X> . Donde G es una GLC
+
+Paso 1 : Hacer la interseccion del L ( (sigma*)X(sigma*) ) con L ( G ) .Lllamaremos el el lenguaje resultante LI
+ Llamaremos el GLC que corresponde a LI : I
+
+Paso 2 : I . Darsela al decididor de ECFG. ACEPTAR si rechaza. RECHAZAR si acepta
+
+Esto es un decididor por que:
+
+Revisar que algo sea un GLC es decidible ( paso 0 ) 
+
+Hallar la GLC que corresponde a la interseccion entre una expresion regular y una GLC ( lo que el paso 1 hace  ) es decidible
+MEJOR DICHO . Esta en una computacion que siempre termina correctamente en tiempo finito
+
+Invertir el resultado de un MT decididor nunca entrara en bucle infinito ( paso 2 ) 
+ 
+
+donde ECFG es :
+
+ECFG : { G : tal que G es una GLC que para cualquier derivacion posible, siempre entra en bucle infinito ( nunca termina la derivacion ) , por ejemplo } 
+( definicion alternativa en sipser 4.1 DECIDABLE LANGUAGES 199  )
+
+S -> A
+A -> B
+B -> A
+
+o 
+
+
+S -> 0S
