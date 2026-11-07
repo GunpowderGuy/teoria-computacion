@@ -25,9 +25,6 @@ Paso 3: Destachar todos los B. Si quedan As sin tachar, volver al paso 2
 
 Paso 4: Si quedan C sin tachar RECHAZAR de lo contrario ACEPTAR
 
-responde booleanmente si mi respuesta esta bien o mal
-
-nota : los enunciados estan un archivo adjunto, en la misma carpeta
 
 Click the link to view the conversation with Kimi https://www.kimi.ai/share/1a19924a-cf72-811f-8000-00009bd19616
 
@@ -60,6 +57,8 @@ Si usas E_AFD = { ⟨A⟩ | A es un AFD y L(A) = ∅ } debes diseñar el decidid
 Paso 1 : Haces union de los afd A y B ( union es entre afn, pero todo afd es un afn ), el resultado sera afn.
 
 Paso 2: El afn resultante del paso 1, lo conviertes a AFD ( lo llamaremos P2) 
+
+Paso 2.5 : ( Algunos metodos de union de dos AFD resultan en estados inalcanzables, otros no. La logica para del siguiente paso requiere que no haya estados inalcanzables ) Tomar P2 y eliminar los estados inalcanzables 
 
 Paso 3: Como P2 es la union de 2 AFD. cada uno de sus estados correspondera a 2 estados. Uno de AFD A y el otro de B.
 Revisas si para cada estado de aceptacion ( lo llamaremos Ac) de P2. El Ac corresponde a un estado de aceptacion de A y otro de B. Si para algun Ac, este solo corresponde a un estado de aceptacion de A o B, pero no ambos, entonces la mt RECHAZA. De lo contrario . ACEPTA

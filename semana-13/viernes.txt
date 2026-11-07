@@ -1,0 +1,42 @@
+3 y 34 : no acepta nada
+
+3 y 38: problema de post
+
+Conjunto finito de dominos o fichas
+
+
+3 y 54 : punto bonus
+
+juego de post : para un tileset especifico. hallar solucion es hallar secuencia de tiles, tales que leer la parte superior
+y la inferior son iguales. (algo asi, NO es necesario ser demasiado especifico)
+
+
+LPost = { <T> : T es un tileset ( que cumple las condiciones como ser finito ) , tal que existe solution para T en el problema del juego de post }
+
+
+NUEVO
+
+
+juego de post : para un tileset especifico. hallar solucion es hallar secuencia de tiles, tales que leer la parte superior
+y la inferior son iguales. (algo asi, NO es necesario ser demasiado especifico)
+
+
+LPost = { <T> : T es un tileset ( que cumple las condiciones del juego como ser finito ) ,
+ tal que existe solution para T en el problema del juego de post }
+
+
+4 y 06 : este ni siquiere es np. otros son np
+
+
+4 y 12 : reduciibilidad por mapeo
+
+existe una funcion computable
+
+4 y 21 : funcion computable
+
+
+ok, lo que intuyo para LPost es que es reconocible pero NO decidible
+
+4 y43 : usar esto para turing y atm
+
+4 y 53: un lenguaje es co turing reconocible si su complemento es co turing renocible
