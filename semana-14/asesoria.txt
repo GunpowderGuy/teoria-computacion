@@ -1,0 +1,148 @@
+
+
+4 y 33 : 
+
+empty turing machine
+
+queremos probar que LE = { <M> : L(M) = null } ( la M nunca acepta )  
+
+si construimos m' tal que tenemos 
+
+M' <X > = 
+
+Paso 1 : Revisar si X es igual a D ( una constante cualquiera, no importa mmientras sea constante ) . 
+Si D es diferente de X. RECHAZAR
+
+Paso 2 : Corremos M1 con W1. ACEPTAR si esto acepta . RECHAZAR de lo contrario.
+
+
+
+podriamos hacer ATM <M,W>
+
+Paso 1 : Crear M' con M1 y W1 siendo los M y W de input respectivamente .
+
+Paso 2 : correr MT decididor de LE con M' de input . RECHAZAR si este acepta. ACEPTAR si este rechaza
+
+esto seria un decididor de ATM. Pero como esto no puede existir, tampoco puede existir el decididor de LE
+
+
+SEGUNDO 
+
+LReg = { <M> : L(M) es regular }
+
+hint LAT = { <M,W> : M acepta W }
+
+
+esto no es decidible y tampoco reconocible.
+
+
+
+
+Si M2 es <
+
+Paso 1 : Crear M' con M1 y W1 siendo los M y W de input respectivamente
+
+Paso 2 :  Correr MT decididor de LReg con M' de input. Si este acepta , entonces ir a paso A. Si este rechaza entonces ir a paso B
+
+Paso A: Aceptar. 
+
+Paso B: Revisar si 
+
+
+
+ATM < M ,W> 
+
+Paso 1 : Creas una maquina que corre M con W. Si esto acepta. Entonces la maquina aceptar cualquier input. De lo contrario acepta input de la forma
+MM ( cadena que se repite )      MI
+
+Paso 1 ( corregido ) . Crear MI con M1 siendo M y W1 siendo W. 
+
+Paso 2:  Correr decididor de LReg con input MI. Si este acepta ACEPTAR. Si este rechaza RECHAZAR.
+
+
+MI<W> =
+
+Paso1: Si W tiene forma MM . ACEPTAR . 
+
+Paso2 : Corro M1 con W1. si esto acepta, entonces ACEPTAR. 
+
+
+EJERCICIO DIFERENTE 15 y 38 :
+
+LEQ = { <M2,MQ> : L(M1) = L(M2) } 
+
+
+si tenemos MInutil 
+
+Paso1: RECHAZAR
+
+
+entonces decididor para LE es <M>
+
+Paso1: correr decididor de LEQ con M y MInutil como inputs. ACEPTAR si este acepta. RECHAZAR si este rechaza
+
+
+Si existiera decididor para LEQ . Se podria contruir decididor para LE , lo que es imposible . Por lo tanto tambien es imposible
+construir un decididor para LEQ
+
+
+( ejercicios de fede 15 y 46 ) 
+
+
+LFede = { <M> : | L(M) | % 3 = 2 ( el numero de cadenas que pertenece al lenguaje tiene un tamaño. tal que { n % 3 = 2 } es True )
+y | L(M) | = infinito ( el numero de cadenas en el lenguaje es finito ) }
+
+hint LATM = { < M1 ,  W>: M acepta W } 
+
+
+
+ATM < M ,W> = 
+
+Paso 1 : Construir un MC . Donde M1 es M y W1 es W. 
+
+Paso 2 : correr el decididor para LFede con MC de input. Si este acepta RECHAZAR. Si este rechaza ACEPTAR
+
+
+MC < W > = 
+
+Paso 1 : Aceptar si la cadena es "7" o  "9"
+
+Paso 2 : Correr M1 con W1. Aceptar si M1 con W1 acepta
+
+OTRO EJERCICIO : 
+
+LANYI : { < M > : M buclea con exactamente n cadenas de longitud prima . donde n es 1 o 2 }    
+
+
+LambdaM = 
+
+
+ATM <M,W> =
+
+Paso1 : modificamos M para que haga loop con cadena A y con cadena B ( tal que A y B son una cadena cada uno. de caracteres validos, con tamaño primo ) .
+Esto lo llamamos M'
+
+Paso2 : corremos el decididor de LANYI con M' . Si esto rechaza, entonces RECHAZAR.
+
+
+
+
+
+CORRECION: 
+
+
+MC ( m compolementario )  < W > = 
+
+Paso 1 : Entrar en bucle infinito, si la cadena input es "11" o  "111"
+
+Paso 2 : Si la cadena input tiene longitud prima. Correr M1 con W1. 
+
+Paso 3 : Aceptar
+
+ATM < M, W > = 
+
+Paso 1 : construimos MC con M siendo M1 y W siendo W1.
+
+Paso 2 : usamos decididor de  LANYI con MC. Si este rechaza RECHAZAR . ( esto nos salva de entrar en bucle en paso 3 ) 
+
+Paso 3 : corremos M con W, Si este acepta ACEPTAR . si este rechaza RECHAZAR 
