@@ -1,0 +1,89 @@
+
+
+escrito 
+
+
+3:
+
+Paso0: Revisar que el input tenga la forma  { a.pow(n1) b.pow(n2) c.pow(n3) }  . 
+Donde los 3 n son enteros al menos 1.
+Si no lo tiene, entones RECHAZAR
+(propósito es RECHAZAR en cadenas que no pertenecen al lenguaje. pero podrían causar loop o 
+aceptación de casualidad. Ademas de verificar la forma básica i,j,k >_1 ) 
+
+Paso1 : Recorrer toda la cadena, cuando encuentras un b : Tacha el b y busca todos los c en la cinta. por cada c que encuentres, tachalo y luego tacha un a de la cinta
+( tachar convierte a en a_tachado, b se convierte en b_tachado y c se convierte en c_tachado. No se 
+convierten en el mismo carácter al ser tachados )
+Si en algún momento deberías tachar un carácter, pero ese carácter no se encuentra en la cinta. RECHAZAR
+(Estas tachando un a por cada c tachado) 
+
+Paso2 : Si quedan bs sin tachar. Destacha todos los c y vuelve al Paso1
+( este paso fuerza a que el paso anterior sea repetido. es como hacer un for loop, donde lo mencionado
+anterior mente "estas tachando un a por cada c tachado" sea ejecutado dentro del for ) 
+
+Paso3: Si quedan as sin tachar RECHAZAR. De lo contrario ACEPTAR
+
+( este paso revisa que el numero de as sea exactamente el numero de bs multiplicado por el 
+numero de cs ) 
+
+Probar con aabcc : 
+
+
+Paso 0: el input si tiene la forma adecuada
+
+Paso 1 : la MT llega a aa(b)cc . Entonces lo tacha ( el b ) :  aa b_tachado cc y a continuación tachar todos los c ( y el mismo numero 
+de as )  
+a_tachado a_tachado b_tachado c_tachado c_tachado. 
+
+Paso2 : no quedan bs sin tachar, por lo tanto solo pasamos al paso3
+
+Paso3: como no quedan as sin tachar, ACEPTAR
+
+
+5 : 
+
+EAFD , Para decidir este lenguaje , hare el siguiente decididor ( lo llamare D0 ) 
+
+
+Paso0 : Verificar que el input es un AFD valido.
+
+Paso1 : Eliminar todos los estados no alcanzables
+( Un estado es no alcanzable si no existe cadena input, para el cual el automata 
+ correspondiente, llegue a dicho estado ) 
+
+Paso2: Si el AFD resultante tiene al menos un estado de aceptación, entonces RECHAZAR. De lo contrario, ACEPTAR
+
+
+Ahora hare el decididor para EQAFD :
+
+Paso0 : Revisar que el input tiene la forma A,B . Tal que tanto A y B son AFD validos
+
+Paso1 : Construir un AFD que es la intersección de A y B. El AFD resultante será 
+llamado I
+
+Paso2: Correr D0 con input I . Si D0 rechaza entonces ACEPTAR.
+
+Paso3: Correr D0 dos veces. Con input A y B respectivamente. Si D0 Acepta en ambas entonces ACEPTAR. 
+De lo contrario RECHAZAR
+
+
+
+4:
+
+
+Paso0 : Revisar que el input (llamado G ) es una GLC valida. Si no lo es, RECHAZAR
+( esto evita que inputs ilegales causen que los otros pasos acepten de casualidad, o 
+tal vez los procesos lopeen forever por input ilegal ) 
+
+Paso1 : Convertir GLC a pushdown automata. El resultado será llamado PD 
+
+Paso2: Eliminar los estados inalcanzables de PD
+
+Paso3: Si PD tiene estados de aceptación , entonces RECHAZAR. De lo contrario ACEPTAR
+
+EXPLICACION : un Pushdown automata o AFD sin estados inalcanzables. Solo tendrá estados de aceptación
+si su lenguaje no es el lenguaje nulo
+y si no tiene estados de aceptación su lenguaje será el lenguaje nulo.
+
+Como G y PD tienen el mismo lenguaje. Si el lenguaje de PD es lenguaje nulo entonces el de G también.
+Si el lenguaje de PD no es lenguaje nulo, el de G tampoco.
