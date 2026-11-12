@@ -1,0 +1,27 @@
+pagina 222
+
+ALBA = {hM, wi| M is an LBA that accepts string w}.
+
+ALBA = { <M , W> | M is a Linear Bounded Automaton that accepts string W }
+
+lemma  : ya que el input de un LBA es n1. El numero de configuraciones posibles sera como maximo n2 ( otro numero entero finito ) 
+
+
+-Sea M un LBA con q estados y g simbolos en el alfabeto de cinta. hay exactamente gnq.pow(n) configuraciones 
+para una entrada de tamaño n
+
+
+A_LBA es computable . Esto se debe a que HALT_LBA es computable . Como hay un numero finito de configuraciones,
+sin un LBA alguna vez pasa por una configuracion mas de una vez, tendra que pasar por ese configuracion una tercera
+cuarta, etc. La computacion nunca se detendra
+
+decididor para HALT_LBA < M, W>
+
+Paso1 : Correr M con W, manteniendo track de las configuraciones que ya se han visitado. Si alguna configuracion se visita mas de una vez, entonce terminar la simulacion simulacion de M con W y RECHAZAR. 
+
+(nota, la unica manera que de llegar el paso 2, es que simular M con W termino por su cuenta. Osea que M con W acepto o rechazo ) 
+Paso2 : Aceptar.
+
+E_LBA es indecidible
+
+

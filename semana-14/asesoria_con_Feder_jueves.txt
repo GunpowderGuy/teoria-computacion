@@ -6,9 +6,33 @@ En esta asesoria se resolvio ejercicios de indecidibilidad mediante reducciones
 
 empty turing machine
 
-queremos probar que LE = { <M> : L(M) = null } ( la M nunca acepta )  
+queremos probar que LE = { <M> : L(M) = null } ( la Maquina nunca acepta )  Es indecidible .  
 
-si construimos m' tal que tenemos 
+Construimos una MT M' tal
+
+
+M' <X > = 
+
+Paso 1 : Corremos M1 con la cadena W1. ( Si esto entra en loop, no se podra ir al paso 3 )  
+
+Paso 2 : ACEPTAR
+
+y construimos un decididor para 
+
+decididor para ATM = { <M,W> : M acepta con la cadena W }
+
+Paso 1: construir M' donde M1 es M y W1 es W.
+
+Paso 2: usar el decididor de de LE con M'. Si este acepta RECHAZAR. Si este rechaza ACEPTAR
+
+
+como vemos . si existiera un decididor para LE. Tambien existiria un decididor para ATM. Pero sabemos que este segundo no 
+existe. por lo tanto el primero tampoco
+
+
+
+
+Segunda version ( esta la hize en clase , la anterior la hize al dia siguiente ) s
 
 M' <X > = 
 
@@ -35,7 +59,7 @@ LReg = { <M> : L(M) es regular }
 hint LAT = { <M,W> : M acepta W }
 
 
-esto no es decidible y tampoco reconocible.
+( Nota : esto no es decidible y tampoco reconocible )
 
 
 
