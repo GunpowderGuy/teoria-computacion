@@ -1,0 +1,60 @@
+11 y 33 : funcion computable en tiempo polinomial
+
+-un lenguaje A es reducible en tiempo polinomico a un lenguaje B  ( escrito A <p B )  si existe una funcion computable en
+tiempo real polinmico f : Sigma* -> Sigma* tal que para toda cadena w:
+
+-W pertenece A <-> f(w) pertence B 
+
+-la funcion F se denomina la reduccion polinomial de A a B
+
+
+- La reduciibilida polinomica es como reducibilidad por mapeo pero eficiente
+
+
+
+9 y 43: Teorema : Si A es reducible a B y B petenece a P , entonces A pertenece a P
+
+demonstracion se olvido poner el profesor . 
+
+
+
+Un lenguaje B es NP completo si satiscfcac dos condiciones formales : 
+
+1 ) B pertenece a NP ( tiene un verificador , que corre en tiempo polinomial ) 
+2 ) PAra todo lengauje A que pertenece a NP , A se puede reducir a B en tiempo polinomico
+
+(el teorema del millon )
+
+Teorema
+Si B es NP completo y B pertenece a P . Entonces P = NP
+
+Teorema 
+Si B es NP compelto y B se puede reducir a C para un lenguaje C que peretenece a NP. C es NP completo
+
+
+10 y 4  :El probelam SAT ( boolean starifiabliky problem ) es un problmea fundamental . determinar si existe al menos una
+asignacion de valores boolenanos. tal que el resultado final de la formula es verdadero
+
+
+
+algo sobre forma normal conjuntiva
+
+
+( ejercicio de 7.6 ) 
+
+
+10 y 17 : 3 SAT 
+
+
+
+
+1: SAT E NP
+
+2 : TurnA A e NP . A es reducible a SAT .  ( debe ser esto en tiempo polinomico ? ) 
+
+Para probar 1 , se puede probar haciendo un verificar que corre en tiempo polinomico . en una mt Deter
+
+
+"NP-hard problems are those at least as hard as NP problems; i.e., all NP problems can be reduced (in polynomial time) to them. NP-hard problems need not be in NP; i.e., they need not have solutions verifiable in polynomial time.
+
+"

@@ -1,0 +1,46 @@
+15 y 50 
+
+PAra demonstrar que un probelma esta en P debemos hacer 3 cosas
+
+RELPRIME { <x,y> | tal que x e y son numeros primos entre si }
+
+15 y 56 : fijas
+
+
+15 y 59 : te podria pedir CYK
+
+
+"o.pow(3)"
+
+
+4 y 0 8 : ( Refieriendose a np ) Equivalentemente , es la clase de lenguajes decidibles por una maquina de 
+Turing no determinista. En tiempo polinomico
+
+NP es la clase de lenguajes que tienen verificadores en tiempo polinomico
+
+(nosotros hemos definido la clase time, ahora definiremos la clase n(time) ) 
+
+
+Ejemplos de problemas nt
+
+K clique
+
+"es un subconjunto de un grafo que es un grafo que es un grafo completo"
+
+4 y 24 : le di la solucion 
+
+V = "On input <<G,k>,c> : 
+
+STEP 1 : Test whether c is a subgraph of G, with k nodes
+STEP 2 : Test whether G contains all edges containing nodes in c 
+( in other words , check that each pair  <v1,v2> of vertices in k ( where v1 /=v2 )  , 
+is connected by at least one edge that exists in G ) 
+STEP 3 : If both tests pass. ACCEPT. If at least one doesnt pass REJECT
+
+16 y 31 : problemas : 
+
+16 y 32 : es p diferente o igual a np
+
+
+4 y 43 : El mejor metodo determinista conocido actualmente para lenguajes np utiliza 
+tiempo exponencial
