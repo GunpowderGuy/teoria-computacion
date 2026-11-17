@@ -1,0 +1,65 @@
+( antes 5 y 24) 
+
+desde indecidibilidad.
+
+incluso la construccion de ATM . la diagonalizacion y esas cosas
+
+5 y 31
+
+np hard
+
+np complete
+
+np
+
+p
+
+5 y 35  complejidad temporal
+
+Sea M una maquin de Turing determinista que se detiene sobre todas las entrada
+
+El tiempo de ejecucion o complejidad temporal de M es la funcion 
+
+5 y 42  ya que es un lenguaje libre de contexto. es decidible
+
+5 y 47 algo raro de big 0 
+
+5 y 51 
+
+Ninguna maquina de Turing de una cinta puede decidir A en tiempo o(n log ) sin que el lenguaje sea regular
+
+
+
+
+6 lenguaje time
+
+
+
+6 y 03 la complejidad de A depende dle modelo de computacion seleccionado
+
+tambien del disenno
+
+maquina de una cinta equivalente que ejecuta en O( tt (n))
+
+
+6 y 10 
+
+Idea de la demonstracion
+
+podre tratar de reducir este exponencial a este polinomial?
+
+6 y 16 : numero de pasos en la rama maxima
+
+ese tiempo de ejecucion es f(n)
+
+
+6 y 27 : tratabilidad
+
+
+6 y 31 
+todos los modelos razonables de computacion son polinomialmente equivalentes
+
+
+P es la clase de lenguajes que son decidibles en tiempo polinómico sobre una máquina de turing determinista de cinta única en otras palabras son los problemas que se pueden resolver de manera fácil
+
+

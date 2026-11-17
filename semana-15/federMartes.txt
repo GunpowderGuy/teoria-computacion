@@ -1,0 +1,49 @@
+
+
+Para probar que un lenguaje L1 es NP completo
+
+1) Probar que el lenguaje es NP 
+
+2) Probar que un lenguaje NP completo se puede reducir a L1 en tiempo polinomial.
+
+
+
+
+
+LCUAD = { <n> : n pertenece N y existe X pertence  N tal que x.pow(2) = n } 
+
+Para demostrar que este lenguaje esta dentro del conjunto NP . Debo demostrar que para este, existe un decididor no determinista 
+que corre en tiempo polinomial . O un verificador determinista que corre en tiempo polinomial
+
+MT1 < n > =
+
+Paso 1 : sacar la raiz cuadrada de n. este resultado lo llamaremos x.
+( hay metodos para sacar la raiz cuadrada de un numero en tiempo polinomial ) 
+
+Paso 2: Si x es numero natural ACEPTAR. De lo contrario RECHAZAR
+https://chat.deepseek.com/share/rzoe20eh1t2xlxg6jo
+
+
+este decididor en P , require demonstracion de paso 1 se ejectua en tiempo polinomial
+
+
+podria verificar todos los numeros antes que n , si son o no la raiz de n
+
+Verificador para el lenguaje 
+
+MT2 < n , X0 > // X0 es certificado. X0 es un numero entero
+
+Paso 1 : multiplicar X0 por X0 . asignar este valor a X2
+Paso2 : si X2 es igual a  N ACEPTAR. si x2 no es igual a n RECHAZAR
+
+
+LEC 2 GRADO 
+
+Hare un verificador determinista que corre en tiempo polinomial
+
+MT1 <a, b , c , x > tal que x0 es un certificado. Y x0 es un numero natural
+=
+
+Paso1 : Calcular a*x0*x0 + b*x0 + c . a este valor le llamaremos result
+
+paso2 : Si result es igual a 0 ACEPTAR. Si result no es igual a 0 RECHAZAR
