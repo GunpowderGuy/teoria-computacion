@@ -1,4 +1,4 @@
-
+17 de noviembre 
 
 Para probar que un lenguaje L1 es NP completo
 
@@ -47,3 +47,58 @@ MT1 <a, b , c , x > tal que x0 es un certificado. Y x0 es un numero natural
 Paso1 : Calcular a*x0*x0 + b*x0 + c . a este valor le llamaremos result
 
 paso2 : Si result es igual a 0 ACEPTAR. Si result no es igual a 0 RECHAZAR
+
+
+LCompuesto { X : X es natural y numero compuesto } 
+
+hare un verificador
+
+MT1 < x,y,z> (donde x,y,z son numeros naturales diferentes entre si. Y y,z son mayores que 0. Y  z ,y son  certificado ) 
+=
+(Este paso 0, no invalida el verificador. Pero no se si sea necesario Feder o Profesor, si ven este comentenme si lo es ) 
+
+Paso 0 : verificar que x, y ,z son numeros naturales diferentes entre si. Y que y,z son mayores que 0. Si alguna verificacion falla. RECHAZAR
+
+Paso 1 : Si x es 0 RECHAZAR
+
+Paso 2 :  Dividir x entre z e y respectivamente. los resultados seran llamados result1 y result2.
+
+Paso 3 : ACEPTAR si result1 y result2 son numeros naturales. RECHAZAR de lo contrario
+
+
+
+"Another polynomially verifiable problem is compositeness. Recall that a nat-
+ural number is composite if it is the product of two integers greater than 1 (i.e., a
+composite number is one that is not a prime number). Let
+COMPOSITES = {x| x = pq, for integers p, q > 1}.
+We can easily verify that a number is composite—all that is needed is a divisor
+of that number. Recently, a polynomial time algorithm for testing whether a
+number is prime or composite was discovered, but it is considerably more com-
+plicated than the preceding method for verifying compositeness." Sipzer tercera edicion, pagina 293. 
+
+nota que sipser sobre simplifico el tema , dice que se necesita un divisor. pero en realidad se necesitaria un divisor 
+diferente de 1 y el numero que se quiere comprobar
+
+"
+THEOREM 7.20
+A language is in NP iff it is decided by some nondeterministic polynomial time
+Turing machine.
+PROOF IDEA We show how to convert a polynomial time verifier to an
+equivalent polynomial time NTM and vice versa. The NTM simulates the ver-
+ifier by guessing the certificate. The verifier simulates the NTM by using the
+accepting branch as the certificate.
+PROOF For the forward direction of this theorem, let A ∈ NP and show that
+A is decided by a polynomial time NTM N . Let V be the polynomial time verifier
+for A that exists by the definition of NP. Assume that V is a TM that runs in time
+nk and construct N as follows."
+
+
+LFACTOR = { <n,m> : N, M pertenecen a los naturales. Y existe P que pertenece a los naturales, tal que 1 < p < n. Y P divide a M } 
+
+Prueba de pertenenecia de este lenguaje a NP. Haremos un DECIDIDOR ND que corre en tiempo polinomial
+
+Paso0 : Verificar que N y M  pertenecen a los naturales
+Paso1 : De manera no determinista asignar P0 . Tal que cual valor posible de P0 es menor que N y mayor que 1
+Paso2 : Dividir M sobre P0 . Si el resultado es natural ACEPTAR de lo contrario RECHAZAR
+
+Nota para cerrar la prueba: como P0 < N, su representación binaria tiene tamaño O(|N|). Generar P0 no determinísticamente y dividir M/P0 toma tiempo polinomial. Si <N,M> pertenece a LFACTOR, alguna rama elige el divisor adecuado y acepta; si no pertenece, todas las ramas rechazan. Por tanto, LFACTOR pertenece a NP.

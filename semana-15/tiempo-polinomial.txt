@@ -1,0 +1,40 @@
+TIEMPO POLINOMIAL
+
+Un algoritmo corre en tiempo polinomial si su tiempo de ejecución en el peor caso está acotado por un polinomio en el tamaño n de la entrada:
+
+T(n) = O(n^k), para alguna constante fija k.
+
+Son tiempos polinomiales:
+O(1), O(log n), O(sqrt(n)), O(n), O(n log n), O(n^2), O(n^100).
+
+No son tiempos polinomiales:
+O(2^n), O(n!), O(n^n).
+
+No existe un "peor" o máximo tiempo polinomial: siempre se puede aumentar el grado k. Un tiempo n^100 sigue siendo polinomial, aunque pueda ser impracticable.
+
+Si el tiempo de un algoritmo está acotado por algún polinomio, entonces es polinomial. Por ejemplo, T(n) <= 5n^3 + 2n implica T(n) = O(n^3).
+
+FACTORIAL Y NÚMERO TRIANGULAR
+
+El factorial es:
+n! = 1 * 2 * ... * n.
+
+Para ningún k fijo, n! crece más lentamente que n^k de forma asintótica. Para todo k fijo:
+n! / n^k -> infinito cuando n -> infinito.
+Por tanto, n! termina creciendo más rápido que cualquier potencia n^k de grado fijo.
+
+La contraparte del factorial usando sumas es el número triangular:
+T_n = 1 + 2 + ... + n = n(n+1)/2.
+
+Como T_n = Theta(n^2), el número triangular es polinomial, específicamente cuadrático:
+- Crece más rápido que n^k si k < 2.
+- Crece al mismo orden que n^2.
+- Crece más lento que n^k si k > 2.
+
+EL TAMAÑO DE UNA ENTRADA NUMÉRICA
+
+En complejidad computacional, n representa la longitud de la codificación de la entrada, no necesariamente su valor numérico.
+
+Si la entrada es un número N escrito en binario, su tamaño es aproximadamente n = log2(N). Por eso, realizar N operaciones requiere aproximadamente 2^n operaciones respecto del tamaño de la entrada: es exponencial, no polinomial.
+
+En cambio, un algoritmo que realiza una cantidad polinomial de operaciones sobre los bits de N sí corre en tiempo polinomial.
