@@ -126,6 +126,43 @@ otra forma equivalente de representar el lenguaje. nota que me di cuenta c tambi
    subconjunto K de {1, 2, ..., n} tal que la suma de los A[i] con i en K es igual a c }    
    
 
-Justifiacion que este es un DECIDIDOR del lenguaje : To be done, dont mention further, 
+Justifiacion que este es un DECIDIDOR del lenguaje : 
 
-Justificacion que este DECIDIDOR corre en tiempo polinomial : To be done, dont mention further, 
+Este es el lenguaje de una serie de numeros, seguidos otro numero . Tal que sumar un subconjunto de esa serie de numeros da
+como resultado el otro numero
+
+Esta MT ND genera todos los subconjuntos posibles de los numeros. Y luego revisa si la suma de este subconjunto es 
+igual al otro numero
+
+Si este chequeo mencionado da como resultado verdadero, corresponde a que el input pertenece al lenguaje. Si da falso , pertence
+que el input no corresponde al lenguaje.
+Como el MT acepta y rechaza de manera correspondiente. Acepta todo input ( o dicho de otro modo , cadena ) que pertenece al 
+lenguajge. Y rechaza todo input que no pertenece al lenguaje
+Nota. que tomamos la convecion que un subconjunto de numeros naturales, de tamaño 0. tiene como suma de todos sus elemenots igual a 0
+
+Justificacion que este DECIDIDOR corre en tiempo polinomial : 
+
+Este MT es un decididor del lenguaje
+Como todos los *pasos toman tiempo polinomial, cada rama de MT1 toma tiempo polinomial. Ademas toda rama     
+   termina con ACEPTAR o RECHAZAR. Por tanto MT1 es un DECIDIDOR ND que corre en tiempo polinomial y           
+   LSUBSET-SUM pertenece a NP.  
+
+*pasos 
+Paso0: revisar que un conjunto de elementos tenga un tamaño dado, toma tiempo lineal o constante ( memoria contingua o no contigua como lista ).
+Verificacion que todos los inputs sean numeros naturales. tambien es polinomial.
+El costo varia dependiendo de la codificacion . en algunas codificaciones podria tener costo 0 ( constante ) ya que todos los valores son naturales
+en otros podria tener costo no constante ( por ejemplo verificar si un elemento es natural o entero no natural ) pero igual polinomico
+
+Paso1: eliminar un subconjunto de los numeros. esto toma tiempo lineal. la rama ND mas larga toma n pasos  
+
+Paso2: igual complejidad que paso anterior
+correccion. se suma un numero de elementos que es como maximo de igual tamaño que input. pero cada elemento toma un tiempo variable , ya que
+para representar un natural arbitrario se necesita bigInt . SIN EMBARGO . La complejidad en ambos casos es lineal o O(n)
+
+ya que ambos casos el tamaño de input afecta el tiempo de ejecucion. solo que en el segundo caso el tamaño afecta de una forma diferente
+primer paso : afecta el numero de elementos
+segundo paso : afecta el numero de elementos y el tamaño de cada uno. Pero igual la operacion es lineal en relacion al tamaño de todos los elemenetos
+peor caso digamos que la operacion tiene costo 0(n.pow(2) ) de todas maneras es un paso de tiempo polinomial
+
+Paso3 : comparacion booleana. toma tiempo constante
+correcion. por que se usan numeros de tamaño abritratio. la compracion toma tiempo lineal en relacion del tamaño de los numeros
