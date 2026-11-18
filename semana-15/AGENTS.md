@@ -17,6 +17,7 @@ Responder en español y ser sucinto cuando el usuario lo pida. Antes de revisar 
 - **LEC-2-GRADO:** el cálculo del verificador es correcto, pero la notación mezcla `x` y `x0`. Todavía conviene definir formalmente el lenguaje y justificar el tamaño polinomial del certificado.
 - **LCOMPUESTO:** el verificador actual con dos divisores `y,z`, todos distintos y positivos, y el rechazo de `x=0`, es correcto. También puede simplificarse a un solo certificado `d` con `1 < d < x` y `d | x`. El usuario observó que Sipser no explicita que el divisor debe ser no trivial y considera esa omisión una sobresimplificación.
 - **LFACTOR:** en el archivo del usuario, la definición actual busca `p` tal que `1 < p < n` y `p | m`. Esto difiere del PDF de ejercicios, donde se busca `1 < p < m` y `p | n`; no intercambiar estas condiciones al revisar. La prueba actual usa un decididor no determinista que adivina `P0`, con `1 < P0 < N`, y comprueba si divide a `M`. Al final del archivo ya se añadió la justificación de corrección, tamaño del certificado y tiempo polinomial.
+- **LSUBSET-SUM:** el decididor no determinista que elimina un subconjunto, suma los elementos restantes y compara con `c` es correcto. El valor mínimo `X` de elementos quedó pendiente de confirmar con el profesor; el procedimiento funciona con cualquiera de las convenciones discutidas.
 
 ## Al revisar nuevas pruebas
 
@@ -24,3 +25,6 @@ Responder en español y ser sucinto cuando el usuario lo pida. Antes de revisar 
 - Verificar que todos los pasos sean polinomiales en la longitud de la entrada y que los certificados tengan longitud polinomial.
 - Recordar que una demostración de pertenencia a NP no demuestra NP-completitud; para NP-completitud también se necesita una reducción polinomial desde un lenguaje NP-completo.
 - No sobrescribir las notas del usuario ni cambiar sus definiciones salvo que lo solicite.
+- Si una prueba está generalmente bien pero tiene un problema puntual, dar una pista para que el usuario lo resuelva, no la solución completa, salvo que la pida.
+- Distinguir entre errores de corrección y precisiones opcionales de implementación. Una operación no determinista descrita a alto nivel no es incorrecta solo porque no se detallen sus decisiones internas.
+- Respetar indicaciones como “dont mention further” y no insistir en apartados que el usuario haya dejado pendientes intencionalmente.

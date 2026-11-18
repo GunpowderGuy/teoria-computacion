@@ -102,3 +102,30 @@ Paso1 : De manera no determinista asignar P0 . Tal que cual valor posible de P0 
 Paso2 : Dividir M sobre P0 . Si el resultado es natural ACEPTAR de lo contrario RECHAZAR
 
 Nota para cerrar la prueba: como P0 < N, su representación binaria tiene tamaño O(|N|). Generar P0 no determinísticamente y dividir M/P0 toma tiempo polinomial. Si <N,M> pertenece a LFACTOR, alguna rama elige el divisor adecuado y acepta; si no pertenece, todas las ramas rechazan. Por tanto, LFACTOR pertenece a NP.
+
+
+ LSUBSET-SUM = { <a1, a2, ..., an, c> : ai pertenece a los naturales para todo i en {1, 2, ..., n}. Y existe un subconjunto 
+   K de {1, 2, ..., n} tal que la suma de los ai con i en K es igual a c }
+   
+   
+   
+Decididor para este lenguaje ND que corre en tiempo polinomial
+
+MT1 <a1, a2, ..., an, c>  =
+
+Paso0 : Revisar que el input sea una serie de numeros naturales de tamanno por lo menos X+1 ( c es un elemento, ademas de los otros ). Si la verificacion falla RECHAZAR
+Paso1 : De manera no determinaste , eliminar un subconjunto de los elementos de input, excepto c, que no sera elminidado
+Paso2 : Sumar todos los elementos de input ( excepto c ) que no fueron eliminados. El resultado sera llamado result
+Paso3 : Si result es igual a c, ACEPTAR. Si result no es igual a c RECHAZAR
+
+definicion de X: no esta claro si la serie de inputs ademas de c. Debe ser como minimo 0, o 1 o 2. Podria decirse que el valor minimo podria ser cualquiera de los 3,es ambiguo. El decididor funciona sin importar eso , solo cambia X
+
+otra forma equivalente de representar el lenguaje. nota que me di cuenta c tambien es natural. ya que c siempre se obtiene a partir de numeros que todos son naturales. y los numeros naturales esta cerrados bajo la operacion de suma
+
+ LSUBSET-SUM = { <A, c> : A = [a1, a2, ..., an] es un array de numeros naturales, c pertenece a los naturales y existe un   
+   subconjunto K de {1, 2, ..., n} tal que la suma de los A[i] con i en K es igual a c }    
+   
+
+Justifiacion que este es un DECIDIDOR del lenguaje : To be done, dont mention further, 
+
+Justificacion que este DECIDIDOR corre en tiempo polinomial : To be done, dont mention further, 
