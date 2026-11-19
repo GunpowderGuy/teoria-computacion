@@ -1,0 +1,143 @@
+*nota. esta revision fue Hecha por diego Rosario , despues del examen. trate de ver que ejercicios estan bien. y los 
+que estan mal si estan bien encaminados o no
+
+EJERCICIO 1:
+Configuraciones:
+
+La secuencia de configuraciones esta bien hasta la configuracion 18. en la configuracion 19 ( fila 37 del excel ) escribi 
+Q3: XXXX(1) pero debi poner Q2: XXX1(1)
+
+
+
+Objetivo  : 
+
+esta maquina no escribe 11 al final de la cadena. sino que escribe el revserso de la entrada
+
+El lenguaje correspondiente a la MT "el lenguage de cualquier cadena de 0s y 1s no nula" es el correcto.
+
+Tambien dije que para cualquier cadena que pertenece a dicho lenguaje, la MT acepta y para cualquiera que no 
+pertenece rechaza. Eso significa que la maquina Decide el lenguaje. Pero hubo un typo dije que lo reconoce.
+
+Nota : si una MT decide un lenguaje L1, dicha mt tambien reconoce el mismo lenguaje. por decir que el mt del
+ejercicio 1 reconoce el lenguaje Sigma+ ( cadenas no vacias dentro del alfabeto ) es menos preciso , pero cierto.
+
+
+EJERCICIO2: 
+
+"Diseñe formalmente una máquina de Turing M con 5 estados en total sobre el
+alfabeto de entrada Σ = {0, 1} que realice el siguiente procesamiento:"
+
+"Finalmente muestra una secuencia de configuraciones para la cadena w = 000"
+
+Todo el ejercicio esta bien. Se diseño una MT con 5 estados sobre el alfabeto dado, que hace el procesamiento pedido
+La secuencia de configuraciones es correcta para la cadena dada.
+
+EJERCICIO3 :
+"
+3. (4 Puntos) Diseñe una máquina de Turing en alto nivel que decida el lenguaje
+L = {ai bj ck |j × k = i and i, j, k ≥ 1}
+ Explicando de forma clara y precisa cada paso del pseudocodigo
+ Realiza una descripción adecuada para probar que tu pseudocodigo acepta la cadena aabcc "
+
+Todo esta bien. 
+
+La maquina en pseudocodigo DECIDE el lenguaje dado.
+Los pasos del pseudocodigo son explicados.
+Y la descripcion demuestre como "aabcc" es aceptado 
+
+
+El algoritmo es correcto: cada iteración del bucle toma un b sin tachar y gasta todos los c (cada uno emparejado con un a), así que al final los as tachados son exactamente j*k. Con el Paso 0 asegurando i, j, k >_ 1 y el Paso 3 controlando el sobrante, la máquina acepta exactamente L
+
+
+nota sobre porque la maquina decide L y no solo lo reconoce :
+
+( en el paso 2 dije que era como un for loop . pero no explique porque dicho loop termina . aqui va )
+
+Los b's de la cadena input solo se tachan , nunca se destachan. ( el paso 2 destacha todos los c , pero los b's quedan tachados ) . Cada vez que el paso 1 se repite , exactamente un b sin tachar se convierte en b_tachado. Por lo tanto el paso 2 -> paso 1 se puede repetir a lo sumo j veces , donde j es el numero de b's de la cadena. Y j es finito , pues la cadena input es finita , y el paso 0 ya verifico que la forma era correcta .
+
+Como el bucle se ejecuta un numero finito de veces , y cada paso individual ( recorrer la cinta , tachar , buscar ) toma tiempo finito pues la cinta es finita . la maquina siempre se detiene. Acepta o rechaza , pero nunca loopea forever.
+
+Esto es importante porque decir que DECIDE es mas fuerte que decir que reconoce. Para reconocer basta con aceptar a los que pertenecen al lenguaje , pero para decidirlo tambien hay que rechazar a los que no pertenecen , y eso requiere detenerse en todo input. Lo cual acabo de demostrar.
+
+EJERCICIO 4:
+
+
+"4. (4 Puntos) Diseñe una máquina de Turing en alto nivel que decida el lenguaje
+EGLC = {⟨G⟩ | G es una GLC y L(G) = ∅}
+ Explicando de forma clara y precisa cada paso del pseudocodigo"
+
+TODO esta correcto. La MT en pseudocodigo decide el el lenguaje dado. La explicacion explica por que el MT decide el lenguaje dado
+
+nota sobre estados alcanzables en pushdown automata:
+
+Estado alcanzable es una estado para la que su automata correspondiente , llega a ese estado , con al menos una cadena de input.
+
+Si un pushdown automaton no tiene estados alcanzables de aceptacion. Entonces no aceptara cadena alguna ( su lenguaje sera el lenguaje vacio. )  Mientras 
+que si tiene por lo menos un estado de aceptacion alcanzable. Aceptara por lo menos una cadena ( su lenguaje no sera el lenguaje vacio )
+
+Esto si se cumple. Pero existe una matiz
+
+Se cumple para el modelo de pushdown que hemos usado en clase. Ya que este acepta inmediatamente se llegue a cualquier estado de aceptacion.
+
+Sin embargo , existe una variante ( que llamare variante no usada )  de pushdown que solo acepta cuando se llegue al estado de aceptacion Y el stack este vacio. Para esta variante me parece no se cumple
+
+
+*De hecho. en todos los pushdown que hicimos en clase y asesoria. Ponemos $ en el stack al inicio de correr al automata.
+El objetivo de esto es darle al automata la capacidad de detectar cuando el stack esta vacio ( Para poder entrar al estado de aceptacion
+solo cuando el stack este vacio ) 
+Esto no es necesario para la variante no usada. Ya que entonces los estados de aceptacion tienen la capacidad de aceptar solo cuando el stack
+cumplen un requisito como tener un top of stack especifico o no tener ninguno ( el stack esta vacio ) 
+
+
+EJERCICIO 5:
+
+
+"5. (6 Puntos) Diseñe una máquina de Turing en alto nivel que decida el lenguaje
+EQAF D = {⟨A, B⟩ | A y B son AFDs y L(A) = L(B)}
+ Si usas EAF D = {⟨A⟩ | A es un AFD y L(A) = ∅} debes diseñar el decididor de EAF D"
+
+
+Este ejercicio tiene un error de implementacion puntual , que es lo unico que lo separa de la version correcta.
+
+D0 es el decididor que arme en el examen. Decide el lenguaje de los AFD que no aceptan nada ( o sea E_AFD ) . D0 esta bien hecho , y la version correcta del ejercicio tambien lo usaria como apoyo.
+
+El decididor que respondi en el examen tiene estos paso ( estos no son todos los paso ):
+
+"Paso 1 : Construir un AFD que es la intersección de A y B. El AFD resultante será llamado I"
+
+"Paso 2 : Correr D0 con input I . Si D0 rechaza entonces ACEPTAR."
+
+"Paso 3 : Correr D0 dos veces. Con input A y B respectivamente. Si D0 Acepta en ambas entonces ACEPTAR. De lo contrario RECHAZAR"
+
+Lo que yo intente hacer era lo siguiente : aceptar si ambos AFD no aceptan nada ( en ese caso son iguales ) . Y tambien aceptar si : el primero intersectado con la negacion del segundo , unido con la negacion del primero intersectado con el segundo , da como resultado el lenguaje vacio. ese resultado es vacio si y solo si ambos AFD son iguales , por lo cual esa accion decidiria el lenguaje pedido por el ejercicio.
+
+SIN EMBARGO , escribi mal. puse la interseccion del primero con el segundo ( sin ninguna negacion ) . Y encima aceptaba cuando dicha interseccion NO era vacia. esa operacion esta mal : que el primer lenguaje tenga cadenas en comun con el segundo no dice nada sobre si son iguales o no.
+
+( de hecho , el lenguaje {0} y el lenguaje {0,1} tienen interseccion no vacia , pero no son iguales. mi version aceptaria cuando deberia rechazar )
+
+Todo lo demas esta bien : la construccion de D0 ( que se usaria igual en la version correcta ) , y los pasos 0 de verificacion de input en ambos MT.
+
+La version correcta seria :
+
+Paso 1 : Construir C1 = A intersectado con la negacion de B , y C2 = la negacion de A intersectado con B.
+
+Paso 2 : Correr D0 con input C1 y con input C2. Si D0 acepta en ambos entonces ACEPTAR. De lo contrario RECHAZAR.
+
+( C1 y C2 son las dos mitades de la diferencia simetrica : la union de ambos es vacia si y solo si A y B son iguales )
+
+Por lo tanto el ejercicio tiene un solo desperfecto : las operaciones de conjuntos ( interseccion , union , complemento ) usadas para comparar los lenguajes. la estructura del decididor y el decididor de apoyo D0 estan bien encaminados.
+
+CONCLUSION : 
+
+No hay errores en los ejercicios excepto el 1 y el 5.
+
+En el ejercicio uno , el lenguaje es correcto. Sin embargo la operacion en la cinta descrita al finalizar la computacion es incorrecta.
+Se menciona correctamente por que es DECIDIDOR ( cualquier cadena del lenguaje es acepta, todas las demas son rechazadas ) 
+pero se llama reconocedor por typo
+
+Las configuraciones estan bien hasta mas de la mitad de la computacion con la cadena dada. luego hubo error
+
+Por esto, considero que se deberia tomar puntaje parcial.
+
+En el ejercicio 5. El concepto, construccion y detalles del MT estan bien. Con excepcion del error puntual mencionado.
+Por esto considerado que se deberia tomar puntaje parcial
