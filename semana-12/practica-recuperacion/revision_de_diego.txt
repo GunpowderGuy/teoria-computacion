@@ -1,6 +1,8 @@
 *nota. esta revision fue Hecha por diego Rosario , despues del examen. trate de ver que ejercicios estan bien. y los 
 que estan mal si estan bien encaminados o no
 
+ejercicios y enunciados en la misma carpeta
+
 EJERCICIO 1:
 Configuraciones:
 
@@ -79,15 +81,17 @@ Esto si se cumple. Pero existe una matiz
 
 Se cumple para el modelo de pushdown que hemos usado en clase. Ya que este acepta inmediatamente se llegue a cualquier estado de aceptacion.
 
-Sin embargo , existe una variante ( que llamare variante no usada )  de pushdown que solo acepta cuando se llegue al estado de aceptacion Y el stack este vacio. Para esta variante me parece no se cumple
+Lo que dije tambien se cumple para la variante que requiere si una vez se consumio toda la cadena de input. el ultimo estado que se llega es el de aceptacion ( no solo pasar por el estado de aceptacion, sino que debe ser el ultimo estado ) 
+
+Sin embargo , existe una variante ( que llamare variante no usada )  de pushdown que solo acepta cuando se llegue al estado de aceptacion Y ademas el stack este vacio ( tal vez otros requerimientos , pero lo importante es que se requiera que el stack este vacio ) .
+ Para esta variante me parece no se cumple
 
 
 *De hecho. en todos los pushdown que hicimos en clase y asesoria. Ponemos $ en el stack al inicio de correr al automata.
 El objetivo de esto es darle al automata la capacidad de detectar cuando el stack esta vacio ( Para poder entrar al estado de aceptacion
 solo cuando el stack este vacio ) 
-Esto no es necesario para la variante no usada. Ya que entonces los estados de aceptacion tienen la capacidad de aceptar solo cuando el stack
-cumplen un requisito como tener un top of stack especifico o no tener ninguno ( el stack esta vacio ) 
-
+Esto no es necesario para la variante no usada.
+Ya que en la variante no usada, incluso si se ingresa al estado de aceptacion, el automata no aceptara. El $ es necesario para evitar ingresar al estado de aceptacion antes que el stack este vacio en las variantes de clase ( no importa si el estado esta vacio o no para aceptar ) 
 
 EJERCICIO 5:
 
