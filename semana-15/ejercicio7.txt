@@ -1,0 +1,69 @@
+Ejercicio 7. Responda verdadero o falso. En cada caso justifique su respuesta.
+
+A ) Suponga que X <_ P Y . Si x es NP-completo entonces Y tambien lo es.
+
+Verdadero. Un lenguaje L1 es NP completo SI Y SOLO ( <-> en simbolo)  otro lenguaje  
+NP completo puede reducirse a L1 en tiempo polinomial
+
+CORRECION
+
+Falso. Y es NP dificil. Significa que cualquier problema NP completo ( y por lo tanto cualquier lenguaje NP ) puede
+reducirse en tiempo polinomial a Y.
+SIN EMBARGO. Para que sea NP completo ademas falta saber si Y esta en NP. Lo que no se sabe
+
+
+B ) Suponga que X <_ P Y . Si Y es NP-completo y X es NP entonces X es NP-completo.
+
+
+Falso. Cualquier lenguaje en NP ( includidos P y NP completo, que son subconjuntos de NP ) se 
+pueden reducir polinomialmente a caulquier lenguaje NP completo
+Entonces que X se pueda reducir polinomialmente a Y. No nos dice mas de lo que ya sabiamos
+
+c) Suponga que X <_ P Y . Si x esta en P entonces Y tambien esta en P.
+
+Falso. Si  W <_P Z . Tal que Z esta en P , entonces W tambien esta en P . Pero no se puede hacer la misma afirmacion por la direccion opuesta 
+
+
+solo dime si la siguiente nota esta bien . nota: todo lenguaje en NP o P ( el segundo es subconjunto del primero ) puede reducirse polinomialmente a     │
+ │   cualquier lenguaje NP completo. Pero si el lenguaje target no es NP completo 
+
+
+ D ) Si P != NP entonces NP-dificil = NP-completo.    
+Falso. NP son los lenguajes que pueden ser decididos en tiempo polinomial por una maquina de turing ND y verificados en
+tiempo polinomial por una maquina de turing D. 
+
+Los NP dificil son los lenguajes que cualquier lenguaje NP puede ser reducido a ellos en tiempo polinomial. Pero
+NP Dificil no necesariamente pueden ser verificados o decididos en tiempo polinomial
+
+
+
+Nota : P-dificultad no exige que el lenguaje sea decidible ni siquiera reconocible; solo exige 
+que todo lenguaje de NP pueda reducirse polinomialmente a él.
+
+
+E ) Si L esta en NP entonces no existe algoritmo polinomial para L.   
+
+enunciado incorrecto. el enunciado no es algo que se pueda responder verdadero o falso
+
+existir un algoritmo a secas no es algo valido para un lenguaje. puede existir un algoritmo que decida, o que verifique
+o que reconozca, etc.
+
+pondre lo que el enunciado probablemente trato de decir
+
+E ) Si L esta en NP entonces no existe algoritmo polinomial que decida L.  
+
+Falso. Los lenguajes en P tienen un algoritmo deterministico que los decido en tiempo polinomial . Se sabe que L esta en NP. 
+Pero tambien podria estar en P
+
+F ) Si L esta en NP y L es NP-dificil entonces L es NP-completo.
+
+CORRECTO
+
+Un lenguaje es NP completo cuando:
+
+
+-Cualquier problema NP puede ser reducido polinomialmente a dicho lenguaje ( esto tambien lo tiene los NP dificil ) 
+-Es NP : osea puede ser verificado de mandera D o decidido de manera ND en tiempo polinomial
+
+
+

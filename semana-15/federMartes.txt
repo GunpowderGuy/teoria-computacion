@@ -166,3 +166,11 @@ peor caso digamos que la operacion tiene costo 0(n.pow(2) ) de todas maneras es 
 
 Paso3 : comparacion booleana. toma tiempo constante
 correcion. por que se usan numeros de tamaño abritratio. la compracion toma tiempo lineal en relacion del tamaño de los numeros
+
+
+Knapsack problem: 
+
+Hare un verificador que corre en tiempo polinomial para este lenguaje
+
+
+LCAMINO-CORTO ha sido movido a su propio archivo: lcamino-corto.txt

@@ -8,6 +8,7 @@ Responder en español y ser sucinto cuando el usuario lo pida. Antes de revisar 
 
 - `federMartes.txt`: notas y pruebas que el usuario modifica activamente.
 - `ejercicios-examen3.pdf`: lista de ejercicios. La sección “Tratabilidad”, página 3, contiene los lenguajes y el ejercicio 5 pide demostrar que están en NP.
+- `ejercicios-examen4.pdf`: su contenido es un subconjunto de `ejercicios-examen3.pdf`, con distinta numeración. Sus ejercicios 1–5 corresponden a los ejercicios 3–7 del examen 3. No incluye los ejercicios de construcción de máquinas de Turing ni los de funciones recursivas; la parte de tratabilidad es la misma en ambos.
 - `Introduction to the Theory of Computation 3rd Edition.pdf`: libro de Michael Sipser. La sección 7.3 explica verificadores y NP: páginas 293–297 del libro, páginas 317–321 del PDF. La definición 7.18 define verificador; la 7.19 define NP; el teorema 7.20 relaciona NP con decididores no deterministas polinomiales.
 - `tiempo-polinomial.txt`: resumen sobre tiempo polinomial, factorial, números triangulares y tamaño de entradas numéricas.
 

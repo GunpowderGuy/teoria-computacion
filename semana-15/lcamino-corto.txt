@@ -1,0 +1,195 @@
+ LCAMINO-CORTO = { <G, r, s, k> : G es un grafo, r , s son vertices de G, k pertenece a los naturales y      
+   existe un camino de r a s en G con menos de k aristas }    
+   
+Hare un verificador para este lenguaje en tiempo polinomial
+
+MT1 < G , r, s, k , [vert]> = donde G,r,s,k cumplen las condiciones del lenguaje . Y [vert] es un array* de vertices que pertenece a 
+ G ( sera usado como certificado )  
+*array es un conjunto de elementos con orden y cuyos elementos se pueden repetir
+
+Paso0 : verificar que G es un grafo. Que k es un numero natural. que r,s y los elementos de [vert] son vertices que estan en G.
+Si alguna verificacion falla RECHAZAR
+
+Paso1: verificar que el elemento 0 del [vert] y r esten conectados por una arista en G . RECHAZAR si este no es el caso
+
+Paso2A:Asignar n como como 0
+Paso2B: verificar que el n elemento ( array usa 0 indexing ) de [vert] y el elemento n+1 esten conectados por una arista en G . RECHAZAR si este no es el caso. 
+Paso2C: Si array tiene elemento n+2 entonces aumentar el valor de n por 1 y luego volver a Paso2B:
+
+Paso3: verificar Si el ultimo elemento de [vert] ( elemento n+1 )  y el elemento s estan conectados por una arista en G. 
+RECHAZAR si este no es el caso
+
+Paso4: chat, debo verificar el tamaño del camino
+
+Paso5: ACEPTAR
+
+
+Paso0 : verificar que G es un grafo. Que k es un numero natural. que r,s y los elementos de [vert] son vertices que estan en G.
+Si alguna verificacion falla RECHAZAR
+
+Paso1: crear un nuevo array ( llamado [vert2] ) que es [vert] pero con r añadido como primer elemento y s añadido como ultimo elemento
+ 
+Paso2A:Asignar n como como 0
+Paso2B: verificar que el n elemento ( array usa 0 indexing ) de [vert2] y el elemento n+1 esten conectados por una arista en G . RECHAZAR si este no es el caso. 
+Paso2C: Si array tiene elemento n+2 entonces aumentar el valor de n por 1 y luego volver a Paso2B
+
+Paso3: Si n+1 es menor a k. ACEPTAR. De lo contrario RECHAZAR
+
+"
+ Ahora sí, la comparación es correcta: aceptas cuando el recorrido representado por [vert2] tiene menos de k 
+   aristas.                                                                                                    
+                                                                                                               
+   Solo queda una convención por confirmar: si r = s y se permite el camino trivial de 0 aristas, tu máquina   
+   actual buscaría una arista de r a sí mismo y lo rechazaría cuando no hay un bucle. Si tu curso permite ese  
+   camino trivial, debes tratarlo como caso especial; si no, no hay problema.                                  
+                                                                                                               
+   Para completar la prueba de pertenencia a NP todavía falta justificar el tamaño polinomial del certificado y
+   el tiempo polinomial del verificador.
+"
+yo diria que es un caso ambiguo en el lenguaje. lo dejaria como que r y s pueden ser el mismo SOLO si dicho vertice tiene ciclo. 
+de esta manera no tengo que manejar este caso como un caso especial en el pseudocodigo
+
+
+Prueba de que este MT funciona en tiempo polinomial
+
+Para todo input, el mt termina en aceptar o rechazar. Ademas cada paso funciona en tiempo polinomial en relacion al input
+
+Paso0: verificacion puede tomar un tiempo variable , dependiendo de la representacion de los elementos . por ejemplo verificar
+propiedades en grafos puede tomar tiempo cuadratico en representaciones no eficientes. pero de igual manera es tiempo polinomial
+
+Paso1 : como estamos copiando elementos de una estructura lineal a otra . Y un numero constante de elementos nuevos, en posiciones conocidas
+beforehand. Esta copia toma tiempo lineal
+
+Paso2: Asignacion de una constante toma tiempo constante
+Paso2B: verificamos una propiedad del grafo, que como mencionado anteriormente , puede ser hasta cuadratico. pero igual es polinomial
+Paso2B: este paso tiene costo constante. pero este repite el paso anterior ( y si mismo ). el numero de repeticiones causado es lineal en
+relacion a [vertice] . cuadratico * lineal sigue siendo polinomial ( cubico )
+
+Paso3: Verificar si una variable es igual a otro numero. Tiene costo polinomial ( depende del tamaño de los numeros ) 
+
+Todos los pasos tiene costo polinomial. tomando en cuenta los dos pasos que se repiten . el costo sigue siendo polinomial
+
+
+Nota : me equivoque al analizar el tiempo. [vert] no forma parte del input del lenguaje, sino que es el certificado. Por lo tanto, demostrar que el verificador es polinomial respecto a [vert] no basta: debo demostrar que es polinomial respecto al input <G,r,s,k>.
+
+Nota2 :
+me he dado cuenta que mi maquina NO es polinomial respecto al input del lenguaje. Por que puede tomar    │  
+    │   muchos pasos que no estan justificados por ellos. [vert] podria tener un numero ridiculo de elementos .
+   a pesar que G , r, s, k son muy pequeños. esto se solucionaria si verificara el tamaño de [vert] al         
+   principio , no al final      
+   
+   
+   
+Paso0 : verificar que G es un grafo. Que k es un numero natural. que r,s y los elementos de [vert] son vertices que estan en G.
+Si alguna verificacion falla RECHAZAR
+
+
+● Justificacion que este MT es un VERIFICADOR del lenguaje :                                                                                                  
+                                                                                                                                                               
+   Primero veamos que si el input pertenece al lenguaje, existe un certificado que hace que MT1 ACEPTE.                                                        
+                                                                                                                                                               
+   Si el input pertenece al lenguaje, existe un camino de r a s con menos de k aristas. Puedo escoger uno de longitud minima, de modo que no tenga vertices    
+   intermedios repetidos. Tomo esos vertices intermedios como [vert]. Entonces [vert] pasa el Paso0.                                                           
+                                                                                                                                                               
+   Al construir [vert2], se obtiene el camino completo, incluyendo r al inicio y s al final. Como todos sus vertices consecutivos estan conectados por aristas 
+   de G, pasa el Paso2. Si m es el tamaño de [vert], el camino tiene m+1 aristas. Como m+1 < k, se cumple que m-1 < k-2. Por tanto tambien pasa el Paso0.5 y   
+   MT1 ACEPTA.                                                                                                                                                 
+                                                                                                                                                               
+   Ahora veamos que si MT1 ACEPTA, entonces el input pertenece al lenguaje.                                                                                    
+                                                                                                                                                               
+   Si MT1 ACEPTA, el Paso2 ya verifico que todos los vertices consecutivos de [vert2] estan conectados por aristas de G. Por tanto [vert2] representa un camino
+   de r a s. Ademas el Paso0.5 verifico que m-1 < k-2, lo cual es equivalente a m+1 < k. Entonces el camino tiene menos de k aristas y el input pertenece al   
+   lenguaje.                                                                                                                                                   
+                                                                                                                                                               
+   Por tanto MT1 es un VERIFICADOR del lenguaje.   
+
+Paso0.5: Verificar que tamaño([vert])-1 es menor que k-2 . Si la verificacion no da verdadero RECHAZAR
+
+Paso1: crear un nuevo array ( llamado [vert2] ) que es [vert] pero con r añadido como primer elemento y s añadido como ultimo elemento
+ 
+Paso2A:Asignar n como como 0
+Paso2B: verificar que el n elemento ( array usa 0 indexing ) de [vert2] y el elemento n+1 esten conectados por una arista en G . RECHAZAR si este no es el caso. 
+Paso2C: Si array tiene elemento n+2 entonces aumentar el valor de n por 1 y luego volver a Paso2B
+
+Paso3: ACEPTAR
+
+
+Nota3: igual esto seria exponencial siendo 2.pow(k) el tamaño de [vert] . por lo tanto el tamaño de verificacion seria exponencial
+
+PERO no es necesario verificar cualquier certificado. para cualquier certificado grande siempre existira un certificado 
+mas pequeño que corra en tiempo polinomial
+
+
+
+
+MT1 < G , r, s, k , [vert]> = donde G,r,s,k cumplen las condiciones del lenguaje . Y [vert] es un array* de vertices que pertenece a 
+ G. tal que para cada elemento que ya esta en el array, este no se puede repetir ( G sera usado como certificado )  
+*array es un conjunto de elementos con orden y cuyos elementos se pueden repetir
+
+
+Paso0 : verificar que G es un grafo. Que k es un numero natural. que r,s y los elementos de [vert] son vertices que estan en G. Y 
+que [vert] no tiene elementos repetidos
+Si alguna verificacion falla RECHAZAR
+
+Paso0.5: Verificar que tamaño([vert])-1 es menor que k-2 . Si la verificacion no da verdadero RECHAZAR
+
+Paso1: crear un nuevo array ( llamado [vert2] ) que es [vert] pero con r añadido como primer elemento y s añadido como ultimo elemento
+ 
+Paso2A:Asignar n como como 0
+Paso2B: verificar que el n elemento ( array usa 0 indexing ) de [vert2] y el elemento n+1 esten conectados por una arista en G . RECHAZAR si este no es el caso. 
+Paso2C: Si array tiene elemento n+2 entonces aumentar el valor de n por 1 y luego volver a Paso2B
+
+Paso3: ACEPTAR
+
+"
+Vease que este reconocedor reconoce todos los certificados anteriores. excepto los que incluian un recorrido cerrado PERO
+cualquier camino con recorrido cerrado puede convertirse en uno sin recorrido cerrado. Tal que el inicio y el final sean el mismo que con 
+recorrido cerrado. " hay errores, aqui , pero no es necesario
+
+
+
+● Justificacion que este MT es un VERIFICADOR del lenguaje :                                                                                                  
+                                                                                                                                                               
+   Primero veamos que si el input pertenece al lenguaje, existe un certificado que hace que MT1 ACEPTE.                                                        
+                                                                                                                                                               
+   Si el input pertenece al lenguaje, existe un camino de r a s con menos de k aristas. Puedo escoger uno de longitud minima, de modo que no tenga vertices    
+   intermedios repetidos. Tomo esos vertices intermedios como [vert]. Entonces [vert] pasa el Paso0.                                                           
+                                                                                                                                                               
+   Al construir [vert2], se obtiene el camino completo, incluyendo r al inicio y s al final. Como todos sus vertices consecutivos estan conectados por aristas 
+   de G, pasa el Paso2. Si m es el tamaño de [vert], el camino tiene m+1 aristas. Como m+1 < k, se cumple que m-1 < k-2. Por tanto tambien pasa el Paso0.5 y   
+   MT1 ACEPTA.                                                                                                                                                 
+                                                                                                                                                               
+   Ahora veamos que si MT1 ACEPTA, entonces el input pertenece al lenguaje.                                                                                    
+                                                                                                                                                               
+   Si MT1 ACEPTA, el Paso2 ya verifico que todos los vertices consecutivos de [vert2] estan conectados por aristas de G. Por tanto [vert2] representa un camino
+   de r a s. Ademas el Paso0.5 verifico que m-1 < k-2, lo cual es equivalente a m+1 < k. Entonces el camino tiene menos de k aristas y el input pertenece al   
+   lenguaje.                                                                                                                                                   
+                                                                                                                                                               
+   Por tanto MT1 es un VERIFICADOR del lenguaje.   
+
+
+
+
+● Justificacion que este VERIFICADOR corre en tiempo polinomial :                                                                                             
+                                                                                                                                                               
+   Sea v el numero de vertices de G. Como [vert] no puede tener vertices repetidos, un certificado aceptado tiene tamaño como maximo v. Si un certificado tiene
+   mas elementos, necesariamente tendria vertices repetidos y seria rechazado. Al revisar las repeticiones, esto se detecta a mas tardar al revisar v+1        
+   elementos. Por tanto el tamaño del certificado que la MT procesa queda acotado polinomialmente respecto a G.                                                
+                                                                                                                                                               
+   Paso0 : Verificar que G sea un grafo, que k sea natural y que r,s pertenezcan a G toma tiempo polinomial. Verificar que los elementos de [vert] sean        
+   vertices de G y que no se repitan tambien toma tiempo polinomial. Por ejemplo, se pueden comparar todos los pares de posiciones, lo cual toma a lo sumo     
+   O(v.pow(2)) comparaciones.                                                                                                                                  
+                                                                                                                                                               
+   Paso0.5 : Calcular el tamaño de [vert], restar los valores indicados y comparar el resultado con k toma tiempo polinomial respecto al tamaño de los numeros.
+                                                                                                                                                               
+   Paso1 : Copiar [vert] y añadir dos elementos toma tiempo lineal respecto a v.                                                                               
+                                                                                                                                                               
+   Paso2A : Asignar una constante toma tiempo constante.                                                                                                       
+                                                                                                                                                               
+   Paso2B y Paso2C : Se hacen a lo sumo v+1 repeticiones. En cada repeticion se verifica si dos vertices estan conectados por una arista de G. Esta            
+   verificacion puede tomar tiempo polinomial respecto a la representacion de G. Por tanto el total tambien es polinomial.                                     
+                                                                                                                                                               
+   Paso3 : ACEPTAR toma tiempo constante.                                                                                                                      
+                                                                                                                                                               
+   Como el certificado procesado tiene tamaño polinomial respecto a G y todos los pasos toman tiempo polinomial respecto al input, MT1 es un VERIFICADOR que   
+   corre en tiempo polinomial.  
