@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Torpedo Grupal 3</title>
+<style>
+  @page { size: A4; margin: 11mm 12mm; }
+  * { box-sizing: border-box; }
+  body { font-family: Arial, Helvetica, sans-serif; font-size: 9.4pt; line-height: 1.12; color: #000; margin: 0; }
+  h1 { font-size: 16pt; margin: 0 0 2mm; border-bottom: 2px solid #000; padding-bottom: 1.5mm; }
+  h2 { font-size: 12pt; margin: 2.5mm 0 1.5mm; border-bottom: 1px solid #000; padding-bottom: 0.8mm; }
+  h3 { font-size: 10.4pt; margin: 2mm 0 0.8mm; }
+  p { margin: 1mm 0; }
+  ul { margin: 1mm 0 1.5mm 5mm; padding-left: 4mm; }
+  li { margin: 0.4mm 0; }
+  pre { font-family: "DejaVu Sans Mono", Consolas, monospace; font-size: 7.8pt; line-height: 100%; white-space: pre-wrap; margin: 1mm 0 1.5mm; padding: 1mm 1.5mm; border-left: 2px solid #000; background: #f5f5f5; page-break-inside: avoid; }
+  .nota { padding: 1mm 1.5mm; border: 1px solid #000; margin: 1.5mm 0; }
+  .page { page-break-after: always; }
+  .page h1 { page-break-before: always; }
+  .page:first-child h1 { page-break-before: avoid; }
+  .page:last-child { page-break-after: auto; }
+  .small { font-size: 8.8pt; }
+  @media print { body { print-color-adjust: exact; -webkit-print-color-adjust: exact; } }
+</style>
+</head>
+<body>
+
+<section class="page">
+<h1>TORPEDO GRUPAL 3</h1>
+<p><b>Temas:</b> ALBA &nbsp;|&nbsp; indecibilidad general (ATM, HALT) &nbsp;|&nbsp; reduccion con mapeo</p>
+
+<h2>1. IDEAS GENERALES</h2>
+<ul>
+<li>Una MT <b>decide</b> L: siempre se detiene. Acepta las cadenas de L y rechaza las que no estan en L.</li>
+<li>Una MT <b>reconoce</b> L: acepta exactamente las cadenas de L. Si una cadena no esta en L, puede rechazar o entrar en bucle.</li>
+<li>Si A es indecidible y A se reduce a B, entonces B es indecidible.</li>
+<li>Si A se reduce a B y B es decidible, entonces A es decidible.</li>
+</ul>
+
+<h2>2. ATM Y HALT</h2>
+<pre>ATM  = { &lt;M,W&gt; : M es una MT y M acepta W }
+HALT = { &lt;M,W&gt; : M es una MT y M se detiene con input W }</pre>
+
+<h3>ATM es reconocible</h3>
+<pre>U &lt;M,W&gt; =
+
+Paso 1 : Correr M con W. Si M acepta ACEPTAR.
+         Si M rechaza RECHAZAR.
+
+( Si M entra en bucle, U tambien entra en bucle )</pre>
+
+<h3>ATM es indecidible. Idea de diagonalizacion</h3>
+<p>Supongamos que H es un decididor de ATM.</p>
+<pre>D &lt;M&gt; =
+
+Paso 1 : Correr H con input &lt;M,&lt;M&gt;&gt;.
+
+Paso 2 : Si H acepta RECHAZAR.
+         Si H rechaza ACEPTAR.</pre>
+<p>D hace lo contrario de lo que H dice sobre M con su propia descripcion. Al correr D con input &lt;D&gt;, D acepta si y solo si D no acepta &lt;D&gt;. Contradiccion. Por lo tanto H no puede existir.</p>
+
+<h3>HALT es indecidible. Reduccion desde ATM</h3>
+<p>Construimos una MT M' tal:</p>
+<pre>M' &lt;X&gt; =
+
+Paso 1 : Correr M1 con W1. Si M1 rechaza, entrar en bucle.
+
+Paso 2 : ACEPTAR.</pre>
+<pre>podriamos hacer ATM &lt;M,W&gt;
+
+Paso 1 : Crear M' con M1 y W1 siendo los M y W de input respectivamente.
+
+Paso 2 : Correr el decididor de HALT con input &lt;M', cadena vacia&gt;.
+         Si este acepta ACEPTAR. Si este rechaza RECHAZAR.</pre>
+<p>M' se detiene si y solo si M acepta W. Si HALT fuera decidible, ATM tambien seria decidible. Contradiccion.</p>
+</section>
+
+<section class="page">
+<h1>ALBA Y REDUCCION CON MAPEO</h1>
+
+<h2>3. ALBA</h2>
+<pre>ALBA = { &lt;M,W&gt; : M es un Linear Bounded Automaton que acepta W }</pre>
+<p>Un LBA usa una cinta limitada linealmente por el tamaño del input. Si tiene q estados y g simbolos de cinta, para una entrada de tamaño n hay <b>q*n*g.pow(n)</b> configuraciones posibles: estado, posicion del cabezal y contenido de la cinta.</p>
+<p>Si una configuracion se repite, la computacion vuelve a seguir el mismo camino. Entonces no se detendra.</p>
+
+<h3>Decididor para HALT_LBA</h3>
+<pre>MTH &lt;M,W&gt; =
+
+Paso 1 : Correr M con W, manteniendo track de las configuraciones visitadas.
+         Si alguna configuracion se visita mas de una vez, terminar la simulacion
+         y RECHAZAR.
+
+Paso 2 : ACEPTAR.
+
+( Solo se llega al paso 2 si M se detiene por su cuenta )</pre>
+
+<h3>Decididor para ALBA</h3>
+<pre>Decididor para ALBA &lt;M,W&gt;
+
+Paso 1 : Correr MTH con M y W como inputs. Si este rechaza RECHAZAR.
+
+Paso 2 : Correr M con input W. Si este acepta ACEPTAR.
+         Si este rechaza RECHAZAR.</pre>
+<p>El paso 2 no puede entrar en bucle porque MTH ya garantizo que M se detiene. Por lo tanto ALBA es decidible.</p>
+
+<h2>4. REDUCCION CON MAPEO</h2>
+<p>A es reducible por mapeo a B, escrito <b>A &lt;=_m B</b>, si existe una funcion computable f tal que:</p>
+<pre>W pertenece A &lt;-&gt; f(W) pertenece B</pre>
+<p>La funcion transforma los inputs de A en inputs de B y mantiene la respuesta SI/NO.</p>
+
+<div class="nota"><b>Forma usual para probar que B es indecidible:</b>
+<ul>
+<li>Elegir un lenguaje A que ya sabemos que es indecidible, normalmente ATM.</li>
+<li>Construir una maquina auxiliar M' usando M y W del input.</li>
+<li>Convertir &lt;M,W&gt; en &lt;M'&gt; mediante una funcion computable.</li>
+<li>Probar la equivalencia entre pertenecer a A y pertenecer a B.</li>
+<li>Si B tuviera decididor, podriamos decidir A. Contradiccion.</li>
+</ul></div>
+<p><b>Importante:</b> para indecibilidad, la funcion solo debe ser computable. No tiene que ser polinomial.</p>
+</section>
+
+<section class="page">
+<h1>EJERCICIOS DE REDUCCION CON MAPEO</h1>
+
+<h2 style="page-break-before: always">5. LE = { &lt;M&gt; : L(M) es vacio }</h2>
+<p>Queremos probar que LE es indecidible usando ATM.</p>
+<pre>Construimos una MT M' tal
+
+M' &lt;X&gt; =
+
+Paso 1 : Correr M1 con W1. Si M1 rechaza RECHAZAR.
+
+Paso 2 : ACEPTAR.
+
+podriamos hacer ATM &lt;M,W&gt;
+
+Paso 1 : Crear M' con M1 y W1 siendo los M y W de input respectivamente.
+
+Paso 2 : Correr el decididor de LE con M' de input.
+         RECHAZAR si este acepta. ACEPTAR si este rechaza.</pre>
+<p>Si M acepta W, M' acepta cualquier X y L(M') no es vacio. Si M no acepta W, M' no acepta ninguna cadena y L(M') es vacio. Por eso la respuesta del decididor de LE se invierte.</p>
+
+<h2>6. LReg = { &lt;M&gt; : L(M) es regular }</h2>
+<p>Usamos el lenguaje no regular {0.pow(n)1.pow(n) : n &gt;= 0}.</p>
+<pre>MI &lt;X&gt; =
+
+Paso 1 : Si X tiene forma 0.pow(n)1.pow(n), ACEPTAR.
+
+Paso 2 : Correr M1 con W1. Si M1 acepta ACEPTAR.
+         Si M1 rechaza RECHAZAR.
+
+podriamos hacer ATM &lt;M,W&gt;
+
+Paso 1 : Crear MI con M1 y W1 siendo los M y W de input respectivamente.
+
+Paso 2 : Correr el decididor de LReg con input MI.
+         Si este acepta ACEPTAR. Si este rechaza RECHAZAR.</pre>
+<ul>
+<li>Si M acepta W, MI acepta Sigma* y su lenguaje es regular.</li>
+<li>Si M no acepta W, L(MI) = {0.pow(n)1.pow(n) : n &gt;= 0}, que no es regular.</li>
+</ul>
+<p>Entonces L(MI) es regular si y solo si M acepta W.</p>
+
+<h2>7. LEQ = { &lt;M1,M2&gt; : L(M1) = L(M2) }</h2>
+<pre>MInutil &lt;X&gt; =
+
+Paso 1 : RECHAZAR.
+
+Decididor para LE &lt;M&gt;
+
+Paso 1 : Correr el decididor de LEQ con M y MInutil como inputs.
+         ACEPTAR si este acepta. RECHAZAR si este rechaza.</pre>
+<p>L(M) = L(MInutil) si y solo si L(M) es vacio. Si LEQ fuera decidible, LE tambien seria decidible. Por lo tanto LEQ es indecidible.</p>
+</section>
+
+<section class="page">
+<h1>E_LBA</h1>
+
+<h2>8. E_LBA = { &lt;M&gt; : M es un LBA y L(M) es vacio }</h2>
+<p>Prueba por reduccion. Si E_LBA fuera decidible ATM tambien seria decidible.</p>
+<pre>Construimos una MT M' tal
+
+M' &lt;X&gt; =
+
+Paso 1 : Revisar si X es un historial C0 # C1 # ... # Ck para M1.
+         Si X no tiene esa forma RECHAZAR.
+
+Paso 2 : Revisar si C0 es la configuracion inicial de M1 con W1.
+         Si no lo es RECHAZAR.
+
+Paso 3 : Revisar si cada C(i+1) se obtiene de Ci usando una transicion
+         valida de M1. Si alguna no es valida RECHAZAR.
+
+Paso 4 : Si Ck es una configuracion de aceptacion ACEPTAR.
+         De lo contrario RECHAZAR.
+
+( M' es un LBA porque estas revisiones usan espacio lineal respecto de X )</pre>
+<pre>podriamos hacer ATM &lt;M,W&gt;
+
+Paso 1 : Crear M' con M1 y W1 siendo los M y W de input respectivamente.
+
+Paso 2 : Correr el decididor de E_LBA con M' de input.
+         RECHAZAR si este acepta. ACEPTAR si este rechaza.</pre>
+<ul>
+<li>Si M acepta W, existe un historial valido que termina en aceptacion. Entonces L(M') no es vacio.</li>
+<li>Si M no acepta W, no existe ese historial. Entonces L(M') es vacio.</li>
+</ul>
+<p>Esto seria un decididor de ATM. Como ATM es indecidible, E_LBA tambien es indecidible.</p>
+
+<h2>CHECKLIST PARA EL EXAMEN</h2>
+<ul>
+<li>Definir claramente la maquina auxiliar M' y su input X.</li>
+<li>Decir que M1 y W1 son M y W incorporados en M'.</li>
+<li>Explicar que pasa cuando M acepta W y cuando M no acepta W.</li>
+<li>Revisar si hay que invertir la respuesta del decididor usado.</li>
+<li>Terminar: si B fuera decidible, A seria decidible. Contradiccion.</li>
+</ul>
+</section>
+
+</body>
+</html>

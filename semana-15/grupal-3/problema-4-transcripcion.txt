@@ -1,0 +1,67 @@
+PROBLEMA 4 - TRANSCRIPCION
+
+[Texto manuscrito en la parte superior: dos dibujos y "A reconocible ->"]
+
+[TEXTO IMPRESO]
+
+4. (5 Puntos)
+
+(a) (2 pts) Demostrar que A_TM es Turing-reconocible.
+
+(b) (3 pts) Demostrar que un lenguaje A es Turing-reconocible si y solo si A <=_m A_TM.
+(hint: usar la parte a)
+
+[Escrito a mano junto al enunciado b: "esta proposicion tiene la forma A <-> B"]
+
+[SOLUCION ESCRITA A MANO]
+
+a)
+
+A_TM = { <M,W> : tal que M es una MT que acepta con input W }
+
+Entonces hare un reconocedor para A_TM. Con input <M,W>:
+
+Paso 0: Revisar que el input tenga la forma <M,W>. Donde M es una MT.
+
+- Si el chequeo falla RECHAZAR.
+
+Paso 1: Correr M con input W. Si este acepta ACEPTAR. Si este rechaza RECHAZA.
+
+- Este es un reconocedor para A_TM, ya que siempre que <M,W> pertenezca al lenguaje, correr M con input W aceptara. Y cuando no pertenezca al lenguaje: rechazara o loopeara.
+
+b)
+
+-Si A es reconocible entonces A ->_m A_TM:
+
+A es reducible por mapeo a A_TM <-> (w pertenece A <-> f(w) pertenece A_TM)  
+
+Nota 1 — sobre la anotación «loop?»:
+
+El profesor escribió «loop?» junto al paso que simula M con entrada w. Entiendo que pregunta qué ocurre cuando M nunca acepta ni rechaza, sino que queda en un bucle infinito.
+
+En mi explicación ya indiqué que, si <M,w> no pertenece a A_TM, mi máquina puede rechazar o quedar en bucle. En cambio, si <M,w> sí pertenece al lenguaje, entonces M acepta w en algún momento y mi máquina también acepta.
+
+Esto es suficiente para que sea un reconocedor de A_TM, que es exactamente lo que pedía el ejercicio; no es necesario que sea un decididor.
+
+Nota 2: Esta segunda linea significa que:
+Que un lenguaje a uno se ha reducible por mapeo a otro lenguaje b1 significa que existe una función computable que que toma cualquier miembro cualquier cadena que pertenece al lenguaje A1 y lo transforma en una cadena que que pertenece al lenguaje B1 y además si toma una cadena que no pertenece al lenguaje a1 entonces la transforma en una cadena que no pertenece al lenguaje B1 ( para este ejercicio A1 es A y B1 es A_TM ) 
+Esta propiedad esta definida en el enunciado 3 del examen. Yo solo la estoy reusando. En la revision, se pregunta que significa f, pero ahi tambien 
+esta definida f. Y el f especifico para este caso esta definido en la resolucion del ejercicio que estamos viendo (el 4).
+
+Para que esto se cumpla necesitara existir f (una funcion computable). Esta es:
+
+f(w) = <M,w>
+
+donde M es una MT reconocedor (o decididor) del lenguaje A (A tiene reconocedor ya que A es reconocible).
+
+Nota 3: En la revision se marco M. Tal vez signifique el profesor no concuerda que se haya probado M exista. o que no se entienda su uso. etc
+Es una propiedad basica de lenguajes, que si un lenguaje A es reconocible , tiene un reconocedor MT
+
+
+-Si A <=_m A_TM entonces A es reconocible:
+
+Si A es reducible por mapeo a A_TM, entonces existe una funcion computable que transforma toda cadena que pertenece a A en una que pertenece a A_TM, y cualquier cadena que no pertenece a A en una que no pertenece a A_TM.
+
+- Esto significa que podemos usar dicha funcion computable y reconocedor A_TM para hacer un reconocedor de A (el nuevo reconocedor tendra un input, aplicara f en el input y el resultado de eso lo aplicara con el reconocedor de A_TM, copiando la aceptacion o rechazo de dicha MT). Reconocedor A_TM que probamos en parte A.
+
+- Ya probamos ambas direcciones de la proposicion logica que se debe probar y, como (A -> B) y (B -> A) -> (A <-> B), lo que se debe probar tambien es cierto.

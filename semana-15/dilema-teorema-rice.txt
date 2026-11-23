@@ -1,0 +1,55 @@
+DILEMA: QUE PUEDE SIGNIFICAR "UN EJERCICIO DE RICE"
+
+TEOREMA DE RICE
+
+Toda propiedad semantica no trivial del lenguaje reconocido por una maquina de Turing es indecidible.
+
+Una propiedad es semantica cuando depende de L(M), es decir, del lenguaje reconocido, y no de la estructura o del comportamiento concreto de la maquina.
+
+No trivial significa que existe al menos una maquina cuyo lenguaje cumple la propiedad y al menos una maquina cuyo lenguaje no la cumple. No basta con decir unicamente "una propiedad que no cumplen todas las MT": tambien debe ser una propiedad del lenguaje reconocido.
+
+OPCION A: EJERCICIOS CLASICOS RELACIONADOS CON RICE
+
+Son problemas como demostrar que el lenguaje vacio, la regularidad del lenguaje o la equivalencia de lenguajes son indecidibles. En los materiales encontrados, estos ejercicios se resuelven mediante reducciones. Sus conclusiones tambien se relacionan con Rice porque tratan propiedades semanticas no triviales.
+
+OPCION B: APLICAR DIRECTAMENTE EL TEOREMA DE RICE
+
+El ejercicio daria una propiedad del lenguaje reconocido por una MT y pediria demostrar su indecidibilidad usando Rice. La prueba consistiria en verificar explicitamente:
+
+1. La propiedad depende solamente de L(M).
+2. La propiedad es no trivial: algun lenguaje reconocible la cumple y otro no.
+3. Por el teorema de Rice, el lenguaje de las maquinas que cumplen esa propiedad es indecidible.
+
+OTRA POSIBILIDAD
+
+Tambien podrian pedir determinar si Rice es aplicable, distinguiendo una propiedad del lenguaje de una propiedad de la maquina o de su ejecucion.
+
+QUE PUEDE QUERER DECIR EL PROFESOR
+
+Con el anuncio "1 de Rice" no se puede confirmar si sera la opcion A o la B. En los materiales revisados no aparece un ejercicio que diga literalmente "demuestre usando el teorema de Rice". Por eso conviene preparar tanto la aplicacion directa del teorema como las demostraciones por reduccion de los problemas clasicos.
+
+REFERENCIAS A EJERCICIOS Y NOTAS
+
+1. Carpeta: semana-12
+   Archivo: text.txt, lineas 42-45.
+   Resumen: mencion explicita del teorema de Rice y nota breve sobre propiedades relacionadas con lenguajes regulares e independientes del contexto.
+
+2. Carpeta: semana-13
+   Archivo: jueves.txt, lineas 5-21.
+   Resumen: aparece REGULAR_TM = {<M> | L(M) es regular}, se afirma que es indecidible y despues se anota el teorema de Rice, incluyendo las ideas de propiedad semantica y no trivial. No se pide literalmente usar Rice para resolver REGULAR_TM.
+
+3. Carpeta: semana-14
+   Archivo: asesoria_con_Feder_jueves.txt, lineas 7-52.
+   Resumen: ejercicio LE = {<M> | L(M) es vacio}. Se demuestra su indecidibilidad mediante una reduccion desde ATM, con dos versiones de la construccion.
+
+4. Carpeta: semana-14
+   Archivo: asesoria_con_Feder_jueves.txt, lineas 55-94.
+   Resumen: ejercicio LReg = {<M> | L(M) es regular}. Se desarrolla una demostracion por reduccion desde ATM; no se pide explicitamente aplicar Rice.
+
+5. Carpeta: semana-14
+   Archivo: asesoria_con_Feder_jueves.txt, lineas 96-112.
+   Resumen: ejercicio LEQ = {<M1,M2> | L(M1) = L(M2)}. Se prueba que es indecidible reduciendo LE a LEQ.
+
+6. Carpeta: semana-15
+   Archivo: ejercicios-examen3.pdf, pagina 2, ejercicio 3(a-c).
+   Resumen: pide demostrar mediante reducciones que son indecidibles LE (lenguaje vacio), LR (lenguaje regular) y LEQ (igualdad de lenguajes). Son problemas clasicos relacionados con Rice, pero el enunciado general del ejercicio 3 dice "usando reducciones", no "usando el teorema de Rice".

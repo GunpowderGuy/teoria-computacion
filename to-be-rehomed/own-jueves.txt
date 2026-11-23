@@ -7,7 +7,7 @@ ALBA = { <M , W> | M is a Linear Bounded Automaton that accepts string W }
 lemma  : ya que el input de un LBA es n1. El numero de configuraciones posibles sera como maximo n2 ( otro numero entero finito ) 
 
 
--Sea M un LBA con q estados y g simbolos en el alfabeto de cinta. hay exactamente gnq.pow(n) configuraciones 
+-Sea M un LBA con q estados y g simbolos en el alfabeto de cinta. hay exactamente qng.pow(n) configuraciones 
 para una entrada de tamaño n
 
 
@@ -15,13 +15,56 @@ A_LBA es computable . Esto se debe a que HALT_LBA es computable . Como hay un nu
 sin un LBA alguna vez pasa por una configuracion mas de una vez, tendra que pasar por ese configuracion una tercera
 cuarta, etc. La computacion nunca se detendra
 
-decididor para HALT_LBA < M, W>
+decididor para HALT_LBA < M, W> ( lo llamare MTH ) 
 
 Paso1 : Correr M con W, manteniendo track de las configuraciones que ya se han visitado. Si alguna configuracion se visita mas de una vez, entonce terminar la simulacion simulacion de M con W y RECHAZAR. 
 
 (nota, la unica manera que de llegar el paso 2, es que simular M con W termino por su cuenta. Osea que M con W acepto o rechazo ) 
 Paso2 : Aceptar.
 
-E_LBA es indecidible
 
+Entonces ALBA puede ser reducido a HALT_LBA
+
+Decididor para ALBA <M,W> 
+
+Paso 1 :  Correr MTH con M y W como inputs. Si este rechaza entonces RECHAZAR. 
+
+Paso 2 : Correr M con input W. Si este acepta ACEPTAR. Si este rechaza RECHAZAR 
+
+
+E_LBA es indecidible .... tbh
+
+
+Prueba por reduccion. Si E_LBA fuera decidible ATM tambien seria decidible :
+
+
+Construimos una MT M' tal
+
+
+M' <X > =
+
+Paso 1 : Revisar si X es un historial de computacion C0 # C1 # ... # Ck para M1.
+Si X no tiene esa forma. RECHAZAR
+
+Paso 2 : Revisar si C0 es la configuracion inicial de M1 con W1.
+Si no lo es. RECHAZAR
+
+Paso 3 : Revisar si cada C(i+1) se obtiene de Ci usando una transicion valida de M1.
+Si alguna transicion no es valida. RECHAZAR
+
+Paso 4 : Si Ck es una configuracion de aceptacion. ACEPTAR. De lo contrario RECHAZAR
+
+( M' es un LBA porque todas estas revisiones se pueden hacer usando espacio lineal respecto de X )
+
+
+podriamos hacer ATM <M,W>
+
+Paso 1 : Crear M' con M1 y W1 siendo los M y W de input respectivamente .
+
+Paso 2 : correr MT decididor de E_LBA con M' de input . RECHAZAR si este acepta. ACEPTAR si este rechaza
+
+( Si M acepta W, existe un historial de computacion que termina en aceptacion. Entonces M' acepta al menos una cadena y L(M') no es vacio.
+Si M no acepta W, no existe ese historial y L(M') es vacio )
+
+esto seria un decididor de ATM. Pero como esto no puede existir, tampoco puede existir el decididor de E_LBA
 
